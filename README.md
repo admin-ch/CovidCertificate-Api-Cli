@@ -31,6 +31,7 @@ USAGE
 <!-- commands -->
 * [`cc-cli hello [FILE]`](#cc-cli-hello-file)
 * [`cc-cli help [COMMAND]`](#cc-cli-help-command)
+* [`cc-cli sign [FILE]`](#cc-cli-sign-file)
 
 ## `cc-cli hello [FILE]`
 
@@ -68,4 +69,20 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `cc-cli sign [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cc-cli sign [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.0.0/src/commands/sign.ts)_
 <!-- commandsstop -->
