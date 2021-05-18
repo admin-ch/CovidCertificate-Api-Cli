@@ -29,46 +29,50 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`cc-cli create-recovery [FILE]`](#cc-cli-create-recovery-file)
-* [`cc-cli hello [FILE]`](#cc-cli-hello-file)
+* [`cc-cli create-recovery`](#cc-cli-create-recovery)
 * [`cc-cli help [COMMAND]`](#cc-cli-help-command)
 * [`cc-cli sign FILE`](#cc-cli-sign-file)
 
-## `cc-cli create-recovery [FILE]`
+## `cc-cli create-recovery`
 
 describe the command here
 
 ```
 USAGE
-  $ cc-cli create-recovery [FILE]
+  $ cc-cli create-recovery
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  --baseUrl=baseUrl                                              (required) the url of the REST API
+  --certificateFile=certificateFile                              (required) path to PEM encoded certificate
+
+  --countryOfTest=countryOfTest                                  (required) the country in which the covid certificate
+                                                                 owner has been tested. Format: string (2 chars
+                                                                 according to ISO 3166 Country Codes).
+
+  --dateOfBirth=dateOfBirth                                      (required) birthdate of the covid certificate owner.
+                                                                 Format: ISO 8601 date without time. Range: can be
+                                                                 between 1900-01-01 and 2099-12-31
+
+  --dateOfFirstPositiveTestResult=dateOfFirstPositiveTestResult  (required) date when the sample for the test was
+                                                                 collected. Format: ISO 8601 date without time. Range:
+                                                                 can be between 1900-01-01 and 2099-12-31
+
+  --familyName=familyName                                        (required) family name of the covid certificate owner
+
+  --givenName=givenName                                          (required) given name of the covid certificate owner
+
+  --keyFile=keyFile                                              (required) path to PEM encoded private key
+
+  --language=language                                            [default: de] Accepted languages are: de, it, fr, rm
+
+  --otp=otp                                                      (required) the otp secret
+
+  --outDir=outDir                                                (required) [default:
+                                                                 /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T]
+                                                                 output directory
 ```
 
 _See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.0.0/src/commands/create-recovery.ts)_
-
-## `cc-cli hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ cc-cli hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ cc-cli hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.0.0/src/commands/hello.ts)_
 
 ## `cc-cli help [COMMAND]`
 
