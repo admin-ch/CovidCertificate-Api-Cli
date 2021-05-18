@@ -1,6 +1,6 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs-extra'
-import {keyFile} from '../flags/flags'
+import {keyFile} from '../flags/base-flags'
 import {CanonicalSha256WithRsaSigner} from '../signing/signer'
 
 export default class Sign extends Command {

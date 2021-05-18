@@ -29,9 +29,26 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`cc-cli create-recovery [FILE]`](#cc-cli-create-recovery-file)
 * [`cc-cli hello [FILE]`](#cc-cli-hello-file)
 * [`cc-cli help [COMMAND]`](#cc-cli-help-command)
-* [`cc-cli sign [FILE]`](#cc-cli-sign-file)
+* [`cc-cli sign FILE`](#cc-cli-sign-file)
+
+## `cc-cli create-recovery [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ cc-cli create-recovery [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.0.0/src/commands/create-recovery.ts)_
 
 ## `cc-cli hello [FILE]`
 
@@ -70,18 +87,20 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `cc-cli sign [FILE]`
+## `cc-cli sign FILE`
 
-describe the command here
+reads a utf8 encoded text file, signs the text and writes the base64 encoded signature to stdout
 
 ```
 USAGE
-  $ cc-cli sign [FILE]
+  $ cc-cli sign FILE
+
+ARGUMENTS
+  FILE  input file, should be JSON
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help         show CLI help
+  --keyFile=keyFile  (required) path to PEM encoded private key
 ```
 
 _See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.0.0/src/commands/sign.ts)_
