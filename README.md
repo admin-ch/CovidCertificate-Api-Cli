@@ -20,7 +20,7 @@ $ npm install -g swiss-admin-covid-certificate-api-cli
 $ cc-cli COMMAND
 running command...
 $ cc-cli (-v|--version|version)
-swiss-admin-covid-certificate-api-cli/0.1.0 darwin-x64 node-v14.17.0
+swiss-admin-covid-certificate-api-cli/0.1.1 darwin-x64 node-v14.17.0
 $ cc-cli --help [COMMAND]
 USAGE
   $ cc-cli COMMAND
@@ -35,7 +35,7 @@ USAGE
 
 ## `cc-cli create-recovery`
 
-describe the command here
+create a recovery certificate
 
 ```
 USAGE
@@ -74,7 +74,7 @@ OPTIONS
                                                                  output directory
 ```
 
-_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.0/src/commands/create-recovery.ts)_
+_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.1/src/commands/create-recovery.ts)_
 
 ## `cc-cli help [COMMAND]`
 
@@ -109,5 +109,5 @@ OPTIONS
   --keyFile=keyFile  (required) path to PEM encoded private key
 ```
 
-_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.0/src/commands/sign.ts)_
+_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.1/src/commands/sign.ts)_
 <!-- commandsstop -->
