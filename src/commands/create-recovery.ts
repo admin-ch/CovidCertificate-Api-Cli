@@ -54,7 +54,7 @@ export default class CreateRecovery extends Command {
 
     await fs.ensureDir(flags.outDir)
     let uvci = response.uvci ?? 'empty-uvci'
-    uvci = os.platform() === 'win32' ? uvci.replace(':', '_') : uvci
+    uvci = os.platform() === 'win32' ? uvci.replace(/:/g, '_') : uvci
     await this.saveFile(response.pdf, uvci, flags.outDir, '.pdf')
     await this.saveFile(response.qrCode, uvci, flags.outDir, '.png')
   }
