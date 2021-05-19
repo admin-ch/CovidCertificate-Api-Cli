@@ -1,5 +1,6 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs-extra'
+import * as os from 'os'
 import {baseFlags, outDir} from '../flags/base-flags'
 import {personFlags} from '../flags/person-flags'
 import {RecoveryCertificateCreateDto} from '../api'
@@ -52,8 +53,10 @@ export default class CreateRecovery extends Command {
     }
 
     await fs.ensureDir(flags.outDir)
-    await this.saveFile(response.pdf, response.uvci ?? 'empty-uvci', flags.outDir, '.pdf')
-    await this.saveFile(response.qrCode, response.uvci ?? 'empty-uvci', flags.outDir, '.png')
+    let uvci = response.uvci ?? 'empty-uvci'
+    uvci = os.platform() === 'win32' ? uvci.replace(':', '_') : uvci
+    await this.saveFile(response.pdf, uvci, flags.outDir, '.pdf')
+    await this.saveFile(response.qrCode, uvci, flags.outDir, '.png')
   }
 
   async saveFile(base64: string, uvci: string, outDir: string, extension: string) {

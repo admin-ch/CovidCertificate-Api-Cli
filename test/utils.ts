@@ -36,7 +36,7 @@ export const recoveryFlagValues = [
 ]
 
 export const okCreateResponse: CovidCertificateCreateResponseDto = {
-  uvci: String(Date.now()),
+  uvci: '01:CH:2B6E3D41C75BA7E40EFC53D8',
   pdf: Buffer.from([1, 2, 3]).toString('base64'),
   qrCode: Buffer.from([4, 5, 6]).toString('base64'),
 }
