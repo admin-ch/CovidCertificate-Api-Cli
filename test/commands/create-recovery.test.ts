@@ -1,7 +1,7 @@
 import {expect, test} from '@oclif/test'
 import * as fs from 'fs-extra'
-import {baseFlagValues, okCreateResponse, personFlagValues, recoveryFlagValues, values} from '../utils'
 import * as path from 'path'
+import {baseFlagValues, okCreateResponse, personFlagValues, recoveryFlagValues, values} from '../utils'
 
 describe('create-recovery', () => {
   test

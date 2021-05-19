@@ -1,0 +1,7 @@
+--require ts-node/register
+--require soursource-map-support/register
+--require ./mocha-setup.ts
+--watch-extensions ts
+--recursive
+--reporter spec
+--timeout 5000

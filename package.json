@@ -29,6 +29,8 @@
     "mocha": "^5.2.0",
     "nyc": "^14.1.1",
     "openapi-typescript-codegen": "^0.9.3",
+    "sinon": "^10.0.0",
+    "snackables": "^2.1.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.9"
   },
@@ -61,6 +63,7 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "test-watch": "mocha --watch --watch-files \"**/*.ts\" --forbid-only \"test/**/*.test.ts\"",
+    "test-integration": "mocha --forbid-only \"test-integration/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md",
     "generate": "node generate-api.js"
   },

@@ -41,8 +41,9 @@ export default class CreateRecovery extends Command {
       language: flags.language,
     }
 
+    const logger = {log: this.log, warn: this.warn}
     const client = CertificateCreationClient.fromConfig(flags)
-    const response = await client.createRecoveryCertificate(createDto)
+    const response = await client.createRecoveryCertificate(createDto, logger)
     this.log(`Certificate created. uvci: ${response.uvci ?? '<EMPTY>'}`)
     if (!response.pdf || !response.qrCode) {
       this.error('API send empty pdf or qrCode.')

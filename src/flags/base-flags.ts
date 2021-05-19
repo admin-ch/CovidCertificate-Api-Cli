@@ -19,6 +19,12 @@ export const baseUrl = flags.string({
   required: true,
 })
 
+export const local = flags.boolean({
+  description: 'adds additional headers required to mock the WSG',
+  env: 'CC_CLI_LOCAL',
+  default: false,
+})
+
 export const otp = flags.string({
   description: 'the otp secret',
   env: 'CC_CLI_OTP',
@@ -38,4 +44,5 @@ export const baseFlags = {
   keyFile: keyFile,
   otp: otp,
   outDir: outDir,
+  local: local,
 }
