@@ -65,6 +65,8 @@ OPTIONS
 
   --language=language                                            [default: de] Accepted languages are: de, it, fr, rm
 
+  --local                                                        adds additional headers required to mock the WSG
+
   --otp=otp                                                      (required) the otp secret
 
   --outDir=outDir                                                (required) [default:
