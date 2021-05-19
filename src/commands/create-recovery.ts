@@ -8,7 +8,7 @@ import {CertificateCreationClient} from '../api/api'
 import * as path from 'path'
 
 export default class CreateRecovery extends Command {
-  static description = 'describe the command here'
+  static description = 'create a recovery certificate'
 
   static flags = {
     ...baseFlags,
