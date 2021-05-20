@@ -4,8 +4,8 @@ import * as fs from 'fs-extra'
 export class CanonicalSha256WithRsaSigner {
   constructor(private privateKeyObject: crypto.KeyObject) {}
 
-  sign(message: string): string {
-    const canonicalMessage = CanonicalSha256WithRsaSigner.canonicalize(message)
+  sign(payload: string): string {
+    const canonicalMessage = CanonicalSha256WithRsaSigner.canonicalize(payload)
 
     const bytes = Buffer.from(canonicalMessage, 'utf8')
     const sign = crypto.createSign('RSA-SHA256')
@@ -15,11 +15,11 @@ export class CanonicalSha256WithRsaSigner {
     return base64encodedSignature
   }
 
-  static canonicalize(message: string): string {
+  static canonicalize(payload: string): string {
     // the canonicalization regex is defined by the API
     const regex = /[\n\t ]/gm
-    const canonicalMessage = message.replace(regex, '')
-    return canonicalMessage
+    const canonicalPayload = payload.replace(regex, '')
+    return canonicalPayload
   }
 
   static fromKeyFile(keyFile: string): CanonicalSha256WithRsaSigner {
