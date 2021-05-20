@@ -44,19 +44,24 @@ export default class CreateRecovery extends Command {
 
     const logger = {log: this.log, warn: this.warn}
     const client = CertificateCreationClient.fromConfig(flags)
-    const response = await client.createRecoveryCertificate(createDto, logger)
-    this.log(`Certificate created. uvci: ${response.uvci ?? '<EMPTY>'}`)
-    if (!response.pdf || !response.qrCode) {
-      this.error('API send empty pdf or qrCode.')
-      this.exit(1)
-      return
-    }
 
-    await fs.ensureDir(flags.outDir)
-    let uvci = response.uvci ?? 'empty-uvci'
-    uvci = os.platform() === 'win32' ? uvci.replace(/:/g, '_') : uvci
-    await this.saveFile(response.pdf, uvci, flags.outDir, '.pdf')
-    await this.saveFile(response.qrCode, uvci, flags.outDir, '.png')
+    const iterations = flags.testIterations ?? 1
+
+    for (let i = 0; i < iterations; i++) {
+      const response = await client.createRecoveryCertificate(createDto, logger)
+      this.log(`Certificate created. uvci: ${response.uvci ?? '<EMPTY>'}`)
+      if (!response.pdf || !response.qrCode) {
+        this.error('API send empty pdf or qrCode.')
+        this.exit(1)
+        return
+      }
+
+      await fs.ensureDir(flags.outDir)
+      let uvci = response.uvci ?? 'empty-uvci'
+      uvci = os.platform() === 'win32' ? uvci.replace(/:/g, '_') : uvci
+      await this.saveFile(response.pdf, uvci, flags.outDir, '.pdf')
+      await this.saveFile(response.qrCode, uvci, flags.outDir, '.png')
+    }
   }
 
   async saveFile(base64: string, uvci: string, outDir: string, extension: string) {

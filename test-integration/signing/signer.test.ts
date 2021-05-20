@@ -13,6 +13,13 @@ describe('signer', () => {
     expect(keyFile).to.include('ZH-spital-A-t.bit.admin.ch', 'must use that certificate to be able to validate')
     const signer = CanonicalSha256WithRsaSigner.fromKeyFile(keyFile)
 
+    it('should sign an empty json', () => {
+      const json = '{}'
+      const expectedSignature = 'SCek5a6iTQlNb9F3xXEK9zqHoYcSkUsNSVNct2+Irefkzcfilp/rZ3Q2NajDJWfN8k2Kwz73ioHQqNXUpE48N1GkTiv+AGbpa+qAWzRZ6go0aC0y1nVToSc6tSDcT4HHGV0MZXSDwntsCZt3HsY7+AKQvvytxnC8hqDSWQbvUoxXYhGIXnOWCmRLT8EsibacaX93o0Bm7K1kxLq5JxNg1MIFDNTA4xn6vF9+2Z5iHWBT6kPPtRnX3QQ0ilNlPFHAkU10Gpd6ZUTbi8SwY8jgoCwq4dX2suIgy/M/m4GeviCYeG3aJwiQDghcw6alz+P0UTnMMAELkKFStMR5jCuGXA=='
+      const actual = signer.sign(json)
+      expect(actual).to.equal(expectedSignature)
+    })
+
     it('should sign like sample from Postman collection', () => {
       const json = fs.readFileSync(path.join(__dirname, 'test.json'), 'utf8')
 

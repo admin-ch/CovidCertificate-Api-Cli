@@ -10,7 +10,22 @@ describe('CanonicalSha256WithRsaSigner', () => {
       signer.sign('abc')
     })
   })
-  describe('normalization', () => {
+  describe('canonicalization', () => {
+    it('removes newlines', () => {
+      const message = '{\n\n\n}'
+      const expected = '{}'
+      expect(CanonicalSha256WithRsaSigner.canonicalize(message)).to.equal(expected)
+    })
+    it('removes tabs', () => {
+      const message = '{\t\t\t}'
+      const expected = '{}'
+      expect(CanonicalSha256WithRsaSigner.canonicalize(message)).to.equal(expected)
+    })
+    it('removes newlines and tabs', () => {
+      const message = '\n{\n\t\n\t\t\n}\t\n'
+      const expected = '{}'
+      expect(CanonicalSha256WithRsaSigner.canonicalize(message)).to.equal(expected)
+    })
     it('works like the backend', () => {
       const message = '{\n' +
         '\t"name":{\n' +

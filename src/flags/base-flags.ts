@@ -38,6 +38,13 @@ export const outDir = flags.string({
   default: os.tmpdir(),
 })
 
+export const testIterations = flags.integer({
+  description: 'TESTING: create n certificates with the same data',
+  env: 'CC_CLI_TESTING_ITERATIONS',
+  required: false,
+  hidden: true,
+})
+
 export const baseFlags = {
   baseUrl: baseUrl,
   certificateFile: certificateFile,
@@ -45,4 +52,5 @@ export const baseFlags = {
   otp: otp,
   outDir: outDir,
   local: local,
+  testIterations: testIterations,
 }
