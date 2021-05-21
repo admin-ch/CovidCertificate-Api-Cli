@@ -1,6 +1,6 @@
 {
   "name": "swiss-admin-covid-certificate-api-cli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Federal Office of Information Technology, Systems and Telecommunication FOITT",
   "bin": {
     "cc-cli": "./bin/run"

@@ -9,6 +9,7 @@ swiss-admin-covid-certificate-api-cli
 [![License](https://img.shields.io/npm/l/swiss-admin-covid-certificate-api-cli.svg)](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/master/package.json)
 
 <!-- toc -->
+* [About](#about)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -24,7 +25,7 @@ $ npm install -g swiss-admin-covid-certificate-api-cli
 $ cc-cli COMMAND
 running command...
 $ cc-cli (-v|--version|version)
-swiss-admin-covid-certificate-api-cli/0.1.6 darwin-x64 node-v14.17.0
+swiss-admin-covid-certificate-api-cli/0.1.7 darwin-x64 node-v14.17.0
 $ cc-cli --help [COMMAND]
 USAGE
   $ cc-cli COMMAND
@@ -78,7 +79,7 @@ OPTIONS
                                                                  output directory
 ```
 
-_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.6/src/commands/create-recovery.ts)_
+_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.7/src/commands/create-recovery.ts)_
 
 ## `cc-cli help [COMMAND]`
 
@@ -113,5 +114,5 @@ OPTIONS
   --keyFile=keyFile  (required) path to PEM encoded private key
 ```
 
-_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.6/src/commands/sign.ts)_
+_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.7/src/commands/sign.ts)_
 <!-- commandsstop -->
