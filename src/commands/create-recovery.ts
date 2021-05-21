@@ -1,6 +1,7 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs-extra'
 import * as os from 'os'
+import createDebug from 'debug'
 import {baseFlags, outDir} from '../flags/base-flags'
 import {personFlags} from '../flags/person-flags'
 import {RecoveryCertificateCreateDto} from '../api'
@@ -27,6 +28,10 @@ export default class CreateRecovery extends Command {
 
   async run() {
     const {flags} = this.parse(CreateRecovery)
+
+    if (flags.debug) {
+      createDebug.enable('api')
+    }
 
     const createDto: RecoveryCertificateCreateDto = {
       otp: flags.otp,

@@ -116,3 +116,6 @@ OPTIONS
 
 _See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.7/src/commands/sign.ts)_
 <!-- commandsstop -->
+
+# Debugging
+cc-cli uses [`debug`](https://www.npmjs.com/package/debug).

@@ -38,6 +38,12 @@ export const outDir = flags.string({
   default: os.tmpdir(),
 })
 
+export const debug = flags.boolean({
+  description: 'enable debug output.',
+  default: false,
+  char: 'd',
+})
+
 export const testIterations = flags.integer({
   description: 'TESTING: create n certificates with the same data',
   env: 'CC_CLI_TESTING_ITERATIONS',
@@ -53,4 +59,5 @@ export const baseFlags = {
   outDir: outDir,
   local: local,
   testIterations: testIterations,
+  debug: debug,
 }

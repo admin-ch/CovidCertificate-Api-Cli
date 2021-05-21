@@ -1,5 +1,6 @@
 import got, {Got} from 'got'
 import * as fs from 'fs-extra'
+import createDebug from 'debug'
 import {VaccinationCertificateCreateDto} from './models/VaccinationCertificateCreateDto'
 import {RecoveryCertificateCreateDto} from './models/RecoveryCertificateCreateDto'
 import {TestCertificateCreateDto} from './models/TestCertificateCreateDto'
@@ -18,6 +19,8 @@ export interface Logger {
   log(message?: string, ...args: any[]): void;
 }
 
+const debug = createDebug('api')
+
 export class CertificateCreationClient {
   constructor(private client: Got, private signer: CanonicalSha256WithRsaSigner) {}
 
@@ -34,10 +37,12 @@ export class CertificateCreationClient {
   }
 
   private async createCertificate(request: VaccinationCertificateCreateDto | TestCertificateCreateDto | RecoveryCertificateCreateDto, url: string, logger: Logger): Promise<CovidCertificateCreateResponseDto> {
-    // const body = JSON.stringify(request, null, 2)
-    const body = JSON.stringify(request)
+    debug('createCertificate %s', url)
+    const body = JSON.stringify(request, null, 2)
+    // const body = JSON.stringify(request)
+    debug('body %s', body)
     const signature = this.signer.sign(body)
-
+    debug('signature %s', signature)
     try {
       const response = await this.client.post(url, {
         headers: {
@@ -47,24 +52,24 @@ export class CertificateCreationClient {
         body: body,
       }).json<CovidCertificateCreateResponseDto>()
       return response
-    } catch (e) {
-      if (e instanceof got.HTTPError) {
+    } catch (error) {
+      if (error instanceof got.HTTPError) {
         // const json = JSON.parse() e.response
         const vcapRequestIdHeader = 'x-vcap-request-id'
-        const vcapRequestId = e.response.headers[vcapRequestIdHeader]
+        const vcapRequestId = error.response.headers[vcapRequestIdHeader]
         if (vcapRequestId) {
           logger.warn(`${vcapRequestIdHeader}: ${vcapRequestId}`)
         }
-        const restErrorText = e.response.body as string
+        const restErrorText = error.response.body as string
         if (restErrorText) {
           logger.warn(restErrorText)
         }
-      } else if (e instanceof got.TimeoutError) {
+      } else if (error instanceof got.TimeoutError) {
 
-      } else if (e instanceof got.RequestError) {
+      } else if (error instanceof got.RequestError) {
 
       }
-      throw e
+      throw error
     }
   }
 
@@ -78,6 +83,26 @@ export class CertificateCreationClient {
         key: pemEncodedKey,
         certificate: pemEncodedCertificate,
       },
+      followRedirect: false,
+      hooks: {
+        beforeRequest: [options => {
+          debug('send request')
+          debug('%s - %s', options.method, options.url)
+          debug('headers: %O', options.headers)
+        }],
+        beforeRetry: [
+          (options, error, retryCount) => {
+            debug('retry: statusCode %s, retryCount %s', error?.response?.statusCode, retryCount)
+          },
+        ],
+        afterResponse: [
+          (response, _retryWithMergedOptions) => {
+            debug('response - %s', response.statusCode)
+            debug('headers: %O', response.headers)
+            debug('timings: %o', response.timings.phases)
+            return response
+          },
+        ]},
     })
     let combined = client
     if (config?.local) {
