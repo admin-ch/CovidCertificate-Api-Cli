@@ -26,7 +26,7 @@ describe('CanonicalSha256WithRsaSigner', () => {
       const expected = '{}'
       expect(CanonicalSha256WithRsaSigner.canonicalize(message)).to.equal(expected)
     })
-    it.skip('removes windows crlf newlines', () => {
+    it('removes windows crlf newlines', () => {
       const message = '{\r\n}'
       const expected = '{}'
       expect(CanonicalSha256WithRsaSigner.canonicalize(message)).to.equal(expected)

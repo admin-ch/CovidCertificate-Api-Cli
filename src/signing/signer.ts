@@ -17,7 +17,7 @@ export class CanonicalSha256WithRsaSigner {
 
   static canonicalize(payload: string): string {
     // the canonicalization regex is defined by the API
-    const regex = /[\n\t ]/gm
+    const regex = /[\n\r\t ]/gm
     const canonicalPayload = payload.replace(regex, '')
     return canonicalPayload
   }
