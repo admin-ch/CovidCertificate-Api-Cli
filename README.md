@@ -5,7 +5,6 @@ swiss-admin-covid-certificate-api-cli
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/swiss-admin-covid-certificate-api-cli.svg)](https://npmjs.org/package/swiss-admin-covid-certificate-api-cli)
-[![CircleCI](https://circleci.com/gh/admin-ch/CovidCertificate-Api-Cli/tree/master.svg?style=shield)](https://circleci.com/gh/admin-ch/CovidCertificate-Api-Cli/tree/master)
 [![Downloads/week](https://img.shields.io/npm/dw/swiss-admin-covid-certificate-api-cli.svg)](https://npmjs.org/package/swiss-admin-covid-certificate-api-cli)
 [![License](https://img.shields.io/npm/l/swiss-admin-covid-certificate-api-cli.svg)](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/master/package.json)
 
@@ -13,6 +12,11 @@ swiss-admin-covid-certificate-api-cli
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
+# About
+`cc-cli` interacts with the [Swiss Covid Certificate API](https://github.com/admin-ch/CovidCertificate-Apidoc#readme).
+It was created for testing and demo purposes only. 
+
 # Usage
 <!-- usage -->
 ```sh-session
