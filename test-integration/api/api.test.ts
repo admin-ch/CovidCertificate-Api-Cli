@@ -7,7 +7,7 @@ import {getEnvValueForFlag} from '../config'
 require('snackables').config({paths: '.env', debug: true})
 
 describe('create-recovery', async () => {
-  it('environment set up', async () => {
+  it('creates a certificate', async () => {
     // const local = Boolean(process.env[baseFlags.local.env])
     const local = true
     const apiConfig: ApiConfig = {
