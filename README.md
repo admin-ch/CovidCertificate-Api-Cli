@@ -12,6 +12,7 @@ swiss-admin-covid-certificate-api-cli
 * [About](#about)
 * [Usage](#usage)
 * [Commands](#commands)
+* [Debugging](#debugging)
 <!-- tocstop -->
 
 # About
@@ -25,7 +26,7 @@ $ npm install -g swiss-admin-covid-certificate-api-cli
 $ cc-cli COMMAND
 running command...
 $ cc-cli (-v|--version|version)
-swiss-admin-covid-certificate-api-cli/0.1.7 darwin-x64 node-v14.17.0
+swiss-admin-covid-certificate-api-cli/1.0.0 darwin-x64 node-v14.17.0
 $ cc-cli --help [COMMAND]
 USAGE
   $ cc-cli COMMAND
@@ -35,6 +36,8 @@ USAGE
 # Commands
 <!-- commands -->
 * [`cc-cli create-recovery`](#cc-cli-create-recovery)
+* [`cc-cli create-test`](#cc-cli-create-test)
+* [`cc-cli create-vaccination`](#cc-cli-create-vaccination)
 * [`cc-cli help [COMMAND]`](#cc-cli-help-command)
 * [`cc-cli sign FILE`](#cc-cli-sign-file)
 
@@ -47,6 +50,7 @@ USAGE
   $ cc-cli create-recovery
 
 OPTIONS
+  -d, --debug                                                    enable debug output.
   --baseUrl=baseUrl                                              (required) the url of the REST API
   --certificateFile=certificateFile                              (required) path to PEM encoded certificate
 
@@ -79,7 +83,105 @@ OPTIONS
                                                                  output directory
 ```
 
-_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.7/src/commands/create-recovery.ts)_
+_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.0.0/src/commands/create-recovery.ts)_
+
+## `cc-cli create-test`
+
+create a test certificate
+
+```
+USAGE
+  $ cc-cli create-test
+
+OPTIONS
+  -d, --debug                                        enable debug output.
+  --baseUrl=baseUrl                                  (required) the url of the REST API
+  --certificateFile=certificateFile                  (required) path to PEM encoded certificate
+
+  --dateOfBirth=dateOfBirth                          (required) birthdate of the covid certificate owner. Format: ISO
+                                                     8601 date without time. Range: can be between 1900-01-01 and
+                                                     2099-12-31
+
+  --familyName=familyName                            (required) family name of the covid certificate owner
+
+  --givenName=givenName                              (required) given name of the covid certificate owner
+
+  --keyFile=keyFile                                  (required) path to PEM encoded private key
+
+  --language=language                                [default: de] Accepted languages are: de, it, fr, rm
+
+  --local                                            adds additional headers required to mock the WSG
+
+  --manufacturerCode=manufacturerCode                test manufacturer code. This should only be sent when it is not a
+                                                     PCR test
+
+  --memberStateOfTest=memberStateOfTest              (required) the country in which the covid certificate owner has
+                                                     been tested. Format: string (2 chars according to ISO 3166 Country
+                                                     Codes).
+
+  --otp=otp                                          (required) the otp secret
+
+  --outDir=outDir                                    (required) [default:
+                                                     /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T] output directory
+
+  --resultDateTime=resultDateTime                    ate and time of the test result production (optional for rapid
+                                                     antigen test). Format: ISO 8601 date incl. time.
+
+  --sampleDateTime=sampleDateTime                    (required) date and time of the test sample collection. Format: ISO
+                                                     8601 date incl. time.
+
+  --testingCentreOrFacility=testingCentreOrFacility  (required) name of centre or facility.
+
+  --typeCode=typeCode                                type of test. This field is only mandatory when it is a PCR test.
+```
+
+_See code: [src/commands/create-test.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.0.0/src/commands/create-test.ts)_
+
+## `cc-cli create-vaccination`
+
+create a vaccination certificate
+
+```
+USAGE
+  $ cc-cli create-vaccination
+
+OPTIONS
+  -d, --debug                                  enable debug output.
+  --baseUrl=baseUrl                            (required) the url of the REST API
+  --certificateFile=certificateFile            (required) path to PEM encoded certificate
+
+  --countryOfVaccination=countryOfVaccination  (required) the country in which the covid certificate owner has been
+                                               tested. Format: string (2 chars according to ISO 3166 Country Codes).
+
+  --dateOfBirth=dateOfBirth                    (required) birthdate of the covid certificate owner. Format: ISO 8601
+                                               date without time. Range: can be between 1900-01-01 and 2099-12-31
+
+  --familyName=familyName                      (required) family name of the covid certificate owner
+
+  --givenName=givenName                        (required) given name of the covid certificate owner
+
+  --keyFile=keyFile                            (required) path to PEM encoded private key
+
+  --language=language                          [default: de] Accepted languages are: de, it, fr, rm
+
+  --local                                      adds additional headers required to mock the WSG
+
+  --medicinalProductCode=medicinalProductCode  (required) name of the medicinal product as registered in the country.
+
+  --numberOfDoses=numberOfDoses                (required) number in a series of doses
+
+  --otp=otp                                    (required) the otp secret
+
+  --outDir=outDir                              (required) [default: /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T]
+                                               output directory
+
+  --totalNumberOfDoses=totalNumberOfDoses      (required) number in a series of doses
+
+  --vaccinationDate=vaccinationDate            (required) date when the sample for the test was collected. Format: ISO
+                                               8601 date without time. Range: can be between 1900-01-01 and 2099-12-31
+```
+
+_See code: [src/commands/create-vaccination.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.0.0/src/commands/create-vaccination.ts)_
 
 ## `cc-cli help [COMMAND]`
 
@@ -114,7 +216,7 @@ OPTIONS
   --keyFile=keyFile  (required) path to PEM encoded private key
 ```
 
-_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v0.1.7/src/commands/sign.ts)_
+_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.0.0/src/commands/sign.ts)_
 <!-- commandsstop -->
 
 # Debugging
