@@ -39,6 +39,7 @@ USAGE
 * [`cc-cli create-test`](#cc-cli-create-test)
 * [`cc-cli create-vaccination`](#cc-cli-create-vaccination)
 * [`cc-cli help [COMMAND]`](#cc-cli-help-command)
+* [`cc-cli pm-update FILE`](#cc-cli-pm-update-file)
 * [`cc-cli sign FILE`](#cc-cli-sign-file)
 
 ## `cc-cli create-recovery`
@@ -199,6 +200,25 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `cc-cli pm-update FILE`
+
+updates otp values and signatures in a Postman collection
+
+```
+USAGE
+  $ cc-cli pm-update FILE
+
+ARGUMENTS
+  FILE  path to Postman collection
+
+OPTIONS
+  -h, --help         show CLI help
+  --keyFile=keyFile  (required) path to PEM encoded private key
+  --otp=otp          (required) the otp secret
+```
+
+_See code: [src/commands/pm-update.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.0.0/src/commands/pm-update.ts)_
 
 ## `cc-cli sign FILE`
 

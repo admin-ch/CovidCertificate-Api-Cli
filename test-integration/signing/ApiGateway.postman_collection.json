@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "5fffdab0-4b60-4d0b-b28a-77693f20c741",
+		"name": "CC_API-Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signature",
+			"item": [
+				{
+					"name": "LOCAL: Get Signature",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"testInfo\": [\n        {\n            \"typeCode\": \"LP217198-3\",\n            \"manufacturerCode\": \"1242\",\n            \"sampleDateTime\": \"2021-05-16T10:21:00.000Z\",\n            \"resultDateTime\": \"2021-05-17T10:36:00.000Z\",\n            \"testingCentreOrFacility\": \"Testcenter Bern Wankdorf\",\n            \"memberStateOfTest\": \"Schweiz\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIwMGFiOTBkNC0yZTBjLTRjYTgtYTY2Yi0zYTllOWNlZTgyMjIiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTQyMTM4NiwibmJmIjoxNjIxNDIxMzg2LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTQ2NDU4Nn0.cdw8aNMF96yJQyqAnFpVZUg8KbelCGxjrwIAhkEPAm3XVJGPOOA-YOk3YnFbbNkDbHCs2UvHFNEZAH-nHpq7Lyd0c_V-npx6G0Pq33ztOWb9hsL3nspdCTBAfdieoHoKcHfZDFP3rwDagNeKoKqfcvYqy976K3nWV1dqYe0xe3cgKVYhyAemdbgzyPBTqQGZXZflVbJKdUT7znd8tTxrka-Xrz2neg2w4MdfUIwdFTlzmQRHBPjWeUg6DNLwdW8j_bsP2vRanxah1aefCDciNt0dsL1dGg_WQsrEzef0Ge7YZzACGX54eyJ3-KYKUMLsPudLYYcsFqqvy9-5CcTwxQ\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8121/signature",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8121",
+							"path": [
+								"signature"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wsg",
+			"item": [
+				{
+					"name": "[WSG] Create VaccinationCovidCertificate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Signature",
+								"type": "text",
+								"value": "dxX95k6B/rT/QF52hvLoTS9XBoYYYAbI/o67BE7jolgmadg2iuRlDpVOskeOerZFeRn+IGNC5DLVh4q1s9rk3oKjp7m+aoQp18zRUJSVtYFtPPGSvxFMHn3g/9lYidrChA18A2OuF66GAS1BXsnFFNbgFPOLyuE8yrtnS6u4dvaCEoSc4Qes2U0g1jop0TSESPgVOA0+aM9v+nDBjFv5ITh0XKG/X5MC5hjZ6RbuDdWL8gQkiwgVFuhE4NAsLPs+mTiRpK3Y4lD0fMrRPmIT1WIs3Ko0N+ayqLQVeCB7y2gNTOvMMna2fFzRKrslIorBYj+gG/HHMhNnl0lNnD5yag=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"vaccinationInfo\": [\n        {\n            \"medicinalProductCode\": \"EU/1/20/1507\",\n            \"numberOfDoses\": 2,\n            \"totalNumberOfDoses\": 2,\n            \"vaccinationDate\": \"2021-05-17\",\n            \"countryOfVaccination\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIyYmIwMDlhMC1iMmU0LTQzODgtOTFiZi0zZjJiY2M3N2Y5NWEiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTU4NTczOSwibmJmIjoxNjIxNTg1NzM5LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiNTY4ODQzIiwiaWRwc291cmNlIjoiQWN0aXZlIERpcmVjdG9yeSBCdW5kIiwiZXhwIjoxNjIxNjI4OTM5fQ.IBv2ipTxu2OkZ-1iwscVhYH3kAlSEuJ08PVPKJ1g6UhCA-LNnVEJBhWrjIVoRgR8NNNOHXyVURqQvwUaf6_djTiGnyxtikBCGMFDa4j1r6OGWQ5csc5tMbhzY-sQY64SLFDgAqVsK-3oBxCLoqQ_8FEnXv0LQ1Em3dV9KKmoA-lmAiSWwlpUVDFXrOTGmFB3CBSnwAbRURHV4yoJtzxQmkhfw4CexwXUMfhlSaYNEQd1zYEJRPBE9OmMKiWSiHcfQzeB55rzuK2VPDhxmneTWPOYNN5yyjBQIN1FCAM-wAjlZwn0UdFryfEVOZdekBo8iIhbpWUY9oXu6xViL5EFxg\"\n}"
+						},
+						"url": {
+							"raw": "{{WSG}}/api/v1/covidcertificate/vaccination",
+							"host": [
+								"{{WSG}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"covidcertificate",
+								"vaccination"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WSG] Create RecoveryCovidCertificate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Signature",
+								"type": "text",
+								"value": "hZ8YROd9GDfCdoMszBT5lH4v0kFB2k0836KdRp7ULtlK6/qpighhib6J8H8Z4c4bvfVMaqSkHi8dJ7/e5xDWfC3EaJZfDsR3wF4jZZx6vqHt3jGGleQEc2o7SnqvK8aQ11ZsT0oe1Ac5lxI4KdSGMIygkVd92zE0FYwX5MwsEVyQCzrI4fxO27AlFyBhgznJPWXbjcheetog1pKYBh7YVrAmahAGiefNFGus1jOrP6a0wZXa17NijbNSw+3PdnLuAQOqg4oa/LjcQ6R7dOrpJEUHSgKAbJgU3Rp0dZA8uRBoQZ2+GuoRCMSF+BRm5aIV5iHE+TV4z3OOcWTX2VEClA=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"recoveryInfo\": [\n        {\n            \"dateOfFirstPositiveTestResult\": \"2021-05-03\",\n            \"countryOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIyYmIwMDlhMC1iMmU0LTQzODgtOTFiZi0zZjJiY2M3N2Y5NWEiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTU4NTczOSwibmJmIjoxNjIxNTg1NzM5LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiNTY4ODQzIiwiaWRwc291cmNlIjoiQWN0aXZlIERpcmVjdG9yeSBCdW5kIiwiZXhwIjoxNjIxNjI4OTM5fQ.IBv2ipTxu2OkZ-1iwscVhYH3kAlSEuJ08PVPKJ1g6UhCA-LNnVEJBhWrjIVoRgR8NNNOHXyVURqQvwUaf6_djTiGnyxtikBCGMFDa4j1r6OGWQ5csc5tMbhzY-sQY64SLFDgAqVsK-3oBxCLoqQ_8FEnXv0LQ1Em3dV9KKmoA-lmAiSWwlpUVDFXrOTGmFB3CBSnwAbRURHV4yoJtzxQmkhfw4CexwXUMfhlSaYNEQd1zYEJRPBE9OmMKiWSiHcfQzeB55rzuK2VPDhxmneTWPOYNN5yyjBQIN1FCAM-wAjlZwn0UdFryfEVOZdekBo8iIhbpWUY9oXu6xViL5EFxg\"\n}"
+						},
+						"url": {
+							"raw": "{{WSG}}/api/v1/covidcertificate/recovery",
+							"host": [
+								"{{WSG}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"covidcertificate",
+								"recovery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WSG] Create TestCovidCertificate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Signature",
+								"type": "text",
+								"value": "HYR58ukeKD3bYjX/1ASxofJMbgz3jHBRCdzUV6nBkbM4FnbWsHZJVBu7wSk6qJ1p0M6llcYiwe7s5g0WB4rflMJjN07mh5ZdTrEW3TQXyLiXuFL89QrJ6eJluVhSpeaymo6+Hq2vietvTPIkia80SOE9WQdzZ4XMazPRq/czOKw/6PNdPpq7Fpzz9Hm1LgCweJtvcMmibmwxZdibGWMKbEwPK76uhKn8EZQxkGHYABygcMY05s1YrePk1XgIhviGQJ84Zoas963Bn0k5DEuxmVoNGCq6TXEprFHhKh+NtdejhBLpgcerc36mnzXNEwiSpRlLYbgu3NxcQ5SRV4NHfg=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"testInfo\": [\n        {\n            \"typeCode\": \"LP217198-3\",\n            \"manufacturerCode\": \"1242\",\n            \"sampleDateTime\": \"2021-05-16T10:21:00.000Z\",\n            \"resultDateTime\": \"2021-05-17T10:36:00.000Z\",\n            \"testingCentreOrFacility\": \"Testcenter Bern Wankdorf\",\n            \"memberStateOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIyYmIwMDlhMC1iMmU0LTQzODgtOTFiZi0zZjJiY2M3N2Y5NWEiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTU4NTczOSwibmJmIjoxNjIxNTg1NzM5LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiNTY4ODQzIiwiaWRwc291cmNlIjoiQWN0aXZlIERpcmVjdG9yeSBCdW5kIiwiZXhwIjoxNjIxNjI4OTM5fQ.IBv2ipTxu2OkZ-1iwscVhYH3kAlSEuJ08PVPKJ1g6UhCA-LNnVEJBhWrjIVoRgR8NNNOHXyVURqQvwUaf6_djTiGnyxtikBCGMFDa4j1r6OGWQ5csc5tMbhzY-sQY64SLFDgAqVsK-3oBxCLoqQ_8FEnXv0LQ1Em3dV9KKmoA-lmAiSWwlpUVDFXrOTGmFB3CBSnwAbRURHV4yoJtzxQmkhfw4CexwXUMfhlSaYNEQd1zYEJRPBE9OmMKiWSiHcfQzeB55rzuK2VPDhxmneTWPOYNN5yyjBQIN1FCAM-wAjlZwn0UdFryfEVOZdekBo8iIhbpWUY9oXu6xViL5EFxg\"\n}"
+						},
+						"url": {
+							"raw": "{{WSG}}/api/v1/covidcertificate/test",
+							"host": [
+								"{{WSG}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"covidcertificate",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auto-sign",
+			"item": [
+				{
+					"name": "wsg",
+					"item": [
+						{
+							"name": "[AS-WSG] Create VaccinationCovidCertificate",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"vaccinationInfo\": [\n        {\n            \"medicinalProductCode\": \"EU/1/20/1507\",\n            \"numberOfDoses\": 2,\n            \"totalNumberOfDoses\": 2,\n            \"vaccinationDate\": \"2021-05-17\",\n            \"countryOfVaccination\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjMTZiZTUxNC04YTYxLTQ2NTgtODJhNC03ZjkzZTE3ODVhOTYiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTUyMzY2MSwibmJmIjoxNjIxNTIzNjYxLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTU2Njg2MX0.e4sl1W2tOQMVFmbNRAEXreUUxbsptLrHSvS7zJIDmKSrdiyWkCn1DmNYgXfqHV-Qk3bwtpkyS0HdNxZQBu1gOCsybHaeRt1jDf8l29O5pLdDNeHyDWiOXwWoBZFLJP9fDaEdbNkuqEDx9dD90P3qzEj5Po3ayDSQ5WDGxFCKZIUXbCIgOtVxhAs02SDteUdHYgz419B7K8EnM87R7NPqkH7hJOq8K9iJav-MTrp0aiPm_4JCNjl9SGOSt7Ai68oWkaweVTTvPVe-BZWilvzo-DsVH9yb-Om33tKhAyPCX5hOYb2fb0nRMMPs5QvZ6UbchiA7qD15RywGQtDj-8E36g\"\n}"
+								},
+								"url": {
+									"raw": "{{WSG}}/api/v1/covidcertificate/vaccination",
+									"host": [
+										"{{WSG}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"covidcertificate",
+										"vaccination"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[AS-WSG] Create RecoveryCovidCertificate",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"recoveryInfo\": [\n        {\n            \"dateOfFirstPositiveTestResult\": \"2021-05-03\",\n            \"countryOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjMTZiZTUxNC04YTYxLTQ2NTgtODJhNC03ZjkzZTE3ODVhOTYiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTUyMzY2MSwibmJmIjoxNjIxNTIzNjYxLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTU2Njg2MX0.e4sl1W2tOQMVFmbNRAEXreUUxbsptLrHSvS7zJIDmKSrdiyWkCn1DmNYgXfqHV-Qk3bwtpkyS0HdNxZQBu1gOCsybHaeRt1jDf8l29O5pLdDNeHyDWiOXwWoBZFLJP9fDaEdbNkuqEDx9dD90P3qzEj5Po3ayDSQ5WDGxFCKZIUXbCIgOtVxhAs02SDteUdHYgz419B7K8EnM87R7NPqkH7hJOq8K9iJav-MTrp0aiPm_4JCNjl9SGOSt7Ai68oWkaweVTTvPVe-BZWilvzo-DsVH9yb-Om33tKhAyPCX5hOYb2fb0nRMMPs5QvZ6UbchiA7qD15RywGQtDj-8E36g\"\n}"
+								},
+								"url": {
+									"raw": "{{WSG}}/api/v1/covidcertificate/recovery",
+									"host": [
+										"{{WSG}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"covidcertificate",
+										"recovery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[AS-WSG] Create TestCovidCertificate",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"testInfo\": [\n        {\n            \"typeCode\": \"LP217198-3\",\n            \"manufacturerCode\": \"1242\",\n            \"sampleDateTime\": \"2021-05-16T10:21:00.000Z\",\n            \"resultDateTime\": \"2021-05-17T10:36:00.000Z\",\n            \"testingCentreOrFacility\": \"Testcenter Bern Wankdorf\",\n            \"memberStateOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjMTZiZTUxNC04YTYxLTQ2NTgtODJhNC03ZjkzZTE3ODVhOTYiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTUyMzY2MSwibmJmIjoxNjIxNTIzNjYxLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTU2Njg2MX0.e4sl1W2tOQMVFmbNRAEXreUUxbsptLrHSvS7zJIDmKSrdiyWkCn1DmNYgXfqHV-Qk3bwtpkyS0HdNxZQBu1gOCsybHaeRt1jDf8l29O5pLdDNeHyDWiOXwWoBZFLJP9fDaEdbNkuqEDx9dD90P3qzEj5Po3ayDSQ5WDGxFCKZIUXbCIgOtVxhAs02SDteUdHYgz419B7K8EnM87R7NPqkH7hJOq8K9iJav-MTrp0aiPm_4JCNjl9SGOSt7Ai68oWkaweVTTvPVe-BZWilvzo-DsVH9yb-Om33tKhAyPCX5hOYb2fb0nRMMPs5QvZ6UbchiA7qD15RywGQtDj-8E36g\"\n}"
+								},
+								"url": {
+									"raw": "{{WSG}}/api/v1/covidcertificate/test",
+									"host": [
+										"{{WSG}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"covidcertificate",
+										"test"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "[AS] Create VaccinationCovidCertificate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Client-DN",
+								"value": "CN=ZH-spital-A-t.bit.admin.ch",
+								"type": "text"
+							},
+							{
+								"key": "X-Client-Cert",
+								"value": "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",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"vaccinationInfo\": [\n        {\n            \"medicinalProductCode\": \"EU/1/20/1507\",\n            \"numberOfDoses\": 2,\n            \"totalNumberOfDoses\": 2,\n            \"vaccinationDate\": \"2021-05-17\",\n            \"countryOfVaccination\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjMTZiZTUxNC04YTYxLTQ2NTgtODJhNC03ZjkzZTE3ODVhOTYiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTUyMzY2MSwibmJmIjoxNjIxNTIzNjYxLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTU2Njg2MX0.e4sl1W2tOQMVFmbNRAEXreUUxbsptLrHSvS7zJIDmKSrdiyWkCn1DmNYgXfqHV-Qk3bwtpkyS0HdNxZQBu1gOCsybHaeRt1jDf8l29O5pLdDNeHyDWiOXwWoBZFLJP9fDaEdbNkuqEDx9dD90P3qzEj5Po3ayDSQ5WDGxFCKZIUXbCIgOtVxhAs02SDteUdHYgz419B7K8EnM87R7NPqkH7hJOq8K9iJav-MTrp0aiPm_4JCNjl9SGOSt7Ai68oWkaweVTTvPVe-BZWilvzo-DsVH9yb-Om33tKhAyPCX5hOYb2fb0nRMMPs5QvZ6UbchiA7qD15RywGQtDj-8E36g\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/covidcertificate/vaccination",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"covidcertificate",
+								"vaccination"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[AS] Create RecoveryCovidCertificate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Client-DN",
+								"value": "CN=ZH-spital-A-t.bit.admin.ch",
+								"type": "text"
+							},
+							{
+								"key": "X-Client-Cert",
+								"type": "text",
+								"value": "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"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"recoveryInfo\": [\n        {\n            \"dateOfFirstPositiveTestResult\": \"2021-05-03\",\n            \"countryOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjMTZiZTUxNC04YTYxLTQ2NTgtODJhNC03ZjkzZTE3ODVhOTYiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTUyMzY2MSwibmJmIjoxNjIxNTIzNjYxLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTU2Njg2MX0.e4sl1W2tOQMVFmbNRAEXreUUxbsptLrHSvS7zJIDmKSrdiyWkCn1DmNYgXfqHV-Qk3bwtpkyS0HdNxZQBu1gOCsybHaeRt1jDf8l29O5pLdDNeHyDWiOXwWoBZFLJP9fDaEdbNkuqEDx9dD90P3qzEj5Po3ayDSQ5WDGxFCKZIUXbCIgOtVxhAs02SDteUdHYgz419B7K8EnM87R7NPqkH7hJOq8K9iJav-MTrp0aiPm_4JCNjl9SGOSt7Ai68oWkaweVTTvPVe-BZWilvzo-DsVH9yb-Om33tKhAyPCX5hOYb2fb0nRMMPs5QvZ6UbchiA7qD15RywGQtDj-8E36g\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/covidcertificate/recovery",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"covidcertificate",
+								"recovery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[AS] Create TestCovidCertificate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Client-DN",
+								"type": "text",
+								"value": "CN=ZH-spital-A-t.bit.admin.ch"
+							},
+							{
+								"key": "X-Client-Cert",
+								"type": "text",
+								"value": "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"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"testInfo\": [\n        {\n            \"typeCode\": \"LP217198-3\",\n            \"manufacturerCode\": \"1242\",\n            \"sampleDateTime\": \"2021-05-16T10:21:00.000Z\",\n            \"resultDateTime\": \"2021-05-17T10:36:00.000Z\",\n            \"testingCentreOrFacility\": \"Testcenter Bern Wankdorf\",\n            \"memberStateOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjMTZiZTUxNC04YTYxLTQ2NTgtODJhNC03ZjkzZTE3ODVhOTYiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTUyMzY2MSwibmJmIjoxNjIxNTIzNjYxLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsImV4cCI6MTYyMTU2Njg2MX0.e4sl1W2tOQMVFmbNRAEXreUUxbsptLrHSvS7zJIDmKSrdiyWkCn1DmNYgXfqHV-Qk3bwtpkyS0HdNxZQBu1gOCsybHaeRt1jDf8l29O5pLdDNeHyDWiOXwWoBZFLJP9fDaEdbNkuqEDx9dD90P3qzEj5Po3ayDSQ5WDGxFCKZIUXbCIgOtVxhAs02SDteUdHYgz419B7K8EnM87R7NPqkH7hJOq8K9iJav-MTrp0aiPm_4JCNjl9SGOSt7Ai68oWkaweVTTvPVe-BZWilvzo-DsVH9yb-Om33tKhAyPCX5hOYb2fb0nRMMPs5QvZ6UbchiA7qD15RywGQtDj-8E36g\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/api/v1/covidcertificate/test",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"covidcertificate",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8121/signature\",",
+							"    method: \"POST\",",
+							"    header: {",
+							"        \"Content-Type\": \"text/plain\"",
+							"    },",
+							"    body: pm.request.body",
+							"}, function (err, res) {",
+							"    const signature = res.json().signature",
+							"    pm.request.headers.add({key: 'X-Signature', value: signature})",
+							"});",
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Create VaccinationCovidCertificate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Client-DN",
+						"value": "CN=ZH-spital-A-t.bit.admin.ch",
+						"type": "text"
+					},
+					{
+						"key": "X-Client-Cert",
+						"value": "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",
+						"type": "text"
+					},
+					{
+						"key": "X-Signature",
+						"type": "text",
+						"value": "dxX95k6B/rT/QF52hvLoTS9XBoYYYAbI/o67BE7jolgmadg2iuRlDpVOskeOerZFeRn+IGNC5DLVh4q1s9rk3oKjp7m+aoQp18zRUJSVtYFtPPGSvxFMHn3g/9lYidrChA18A2OuF66GAS1BXsnFFNbgFPOLyuE8yrtnS6u4dvaCEoSc4Qes2U0g1jop0TSESPgVOA0+aM9v+nDBjFv5ITh0XKG/X5MC5hjZ6RbuDdWL8gQkiwgVFuhE4NAsLPs+mTiRpK3Y4lD0fMrRPmIT1WIs3Ko0N+ayqLQVeCB7y2gNTOvMMna2fFzRKrslIorBYj+gG/HHMhNnl0lNnD5yag=="
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"vaccinationInfo\": [\n        {\n            \"medicinalProductCode\": \"EU/1/20/1507\",\n            \"numberOfDoses\": 2,\n            \"totalNumberOfDoses\": 2,\n            \"vaccinationDate\": \"2021-05-17\",\n            \"countryOfVaccination\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIyYmIwMDlhMC1iMmU0LTQzODgtOTFiZi0zZjJiY2M3N2Y5NWEiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTU4NTczOSwibmJmIjoxNjIxNTg1NzM5LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiNTY4ODQzIiwiaWRwc291cmNlIjoiQWN0aXZlIERpcmVjdG9yeSBCdW5kIiwiZXhwIjoxNjIxNjI4OTM5fQ.IBv2ipTxu2OkZ-1iwscVhYH3kAlSEuJ08PVPKJ1g6UhCA-LNnVEJBhWrjIVoRgR8NNNOHXyVURqQvwUaf6_djTiGnyxtikBCGMFDa4j1r6OGWQ5csc5tMbhzY-sQY64SLFDgAqVsK-3oBxCLoqQ_8FEnXv0LQ1Em3dV9KKmoA-lmAiSWwlpUVDFXrOTGmFB3CBSnwAbRURHV4yoJtzxQmkhfw4CexwXUMfhlSaYNEQd1zYEJRPBE9OmMKiWSiHcfQzeB55rzuK2VPDhxmneTWPOYNN5yyjBQIN1FCAM-wAjlZwn0UdFryfEVOZdekBo8iIhbpWUY9oXu6xViL5EFxg\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/covidcertificate/vaccination",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"covidcertificate",
+						"vaccination"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create RecoveryCovidCertificate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Client-DN",
+						"value": "CN=ZH-spital-A-t.bit.admin.ch",
+						"type": "text"
+					},
+					{
+						"key": "X-Client-Cert",
+						"type": "text",
+						"value": "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"
+					},
+					{
+						"key": "X-Signature",
+						"type": "text",
+						"value": "hZ8YROd9GDfCdoMszBT5lH4v0kFB2k0836KdRp7ULtlK6/qpighhib6J8H8Z4c4bvfVMaqSkHi8dJ7/e5xDWfC3EaJZfDsR3wF4jZZx6vqHt3jGGleQEc2o7SnqvK8aQ11ZsT0oe1Ac5lxI4KdSGMIygkVd92zE0FYwX5MwsEVyQCzrI4fxO27AlFyBhgznJPWXbjcheetog1pKYBh7YVrAmahAGiefNFGus1jOrP6a0wZXa17NijbNSw+3PdnLuAQOqg4oa/LjcQ6R7dOrpJEUHSgKAbJgU3Rp0dZA8uRBoQZ2+GuoRCMSF+BRm5aIV5iHE+TV4z3OOcWTX2VEClA=="
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"recoveryInfo\": [\n        {\n            \"dateOfFirstPositiveTestResult\": \"2021-05-03\",\n            \"countryOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIyYmIwMDlhMC1iMmU0LTQzODgtOTFiZi0zZjJiY2M3N2Y5NWEiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTU4NTczOSwibmJmIjoxNjIxNTg1NzM5LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiNTY4ODQzIiwiaWRwc291cmNlIjoiQWN0aXZlIERpcmVjdG9yeSBCdW5kIiwiZXhwIjoxNjIxNjI4OTM5fQ.IBv2ipTxu2OkZ-1iwscVhYH3kAlSEuJ08PVPKJ1g6UhCA-LNnVEJBhWrjIVoRgR8NNNOHXyVURqQvwUaf6_djTiGnyxtikBCGMFDa4j1r6OGWQ5csc5tMbhzY-sQY64SLFDgAqVsK-3oBxCLoqQ_8FEnXv0LQ1Em3dV9KKmoA-lmAiSWwlpUVDFXrOTGmFB3CBSnwAbRURHV4yoJtzxQmkhfw4CexwXUMfhlSaYNEQd1zYEJRPBE9OmMKiWSiHcfQzeB55rzuK2VPDhxmneTWPOYNN5yyjBQIN1FCAM-wAjlZwn0UdFryfEVOZdekBo8iIhbpWUY9oXu6xViL5EFxg\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/covidcertificate/recovery",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"covidcertificate",
+						"recovery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create TestCovidCertificate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Client-DN",
+						"value": "CN=ZH-spital-A-t.bit.admin.ch",
+						"type": "text"
+					},
+					{
+						"key": "X-Client-Cert",
+						"value": "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",
+						"type": "text"
+					},
+					{
+						"key": "X-Signature",
+						"value": "HYR58ukeKD3bYjX/1ASxofJMbgz3jHBRCdzUV6nBkbM4FnbWsHZJVBu7wSk6qJ1p0M6llcYiwe7s5g0WB4rflMJjN07mh5ZdTrEW3TQXyLiXuFL89QrJ6eJluVhSpeaymo6+Hq2vietvTPIkia80SOE9WQdzZ4XMazPRq/czOKw/6PNdPpq7Fpzz9Hm1LgCweJtvcMmibmwxZdibGWMKbEwPK76uhKn8EZQxkGHYABygcMY05s1YrePk1XgIhviGQJ84Zoas963Bn0k5DEuxmVoNGCq6TXEprFHhKh+NtdejhBLpgcerc36mnzXNEwiSpRlLYbgu3NxcQ5SRV4NHfg==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": {\n        \"familyName\": \"Muster\",\n        \"givenName\": \"Hans\"\n    },\n    \"dateOfBirth\": \"1950-06-04\",\n    \"testInfo\": [\n        {\n            \"typeCode\": \"LP217198-3\",\n            \"manufacturerCode\": \"1242\",\n            \"sampleDateTime\": \"2021-05-16T10:21:00.000Z\",\n            \"resultDateTime\": \"2021-05-17T10:36:00.000Z\",\n            \"testingCentreOrFacility\": \"Testcenter Bern Wankdorf\",\n            \"memberStateOfTest\": \"CH\"\n        }\n    ],\n    \"language\": \"de\",\n    \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIyYmIwMDlhMC1iMmU0LTQzODgtOTFiZi0zZjJiY2M3N2Y5NWEiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1hLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTU4NTczOSwibmJmIjoxNjIxNTg1NzM5LCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlcmV4dGlkIjoiNTY4ODQzIiwiaWRwc291cmNlIjoiQWN0aXZlIERpcmVjdG9yeSBCdW5kIiwiZXhwIjoxNjIxNjI4OTM5fQ.IBv2ipTxu2OkZ-1iwscVhYH3kAlSEuJ08PVPKJ1g6UhCA-LNnVEJBhWrjIVoRgR8NNNOHXyVURqQvwUaf6_djTiGnyxtikBCGMFDa4j1r6OGWQ5csc5tMbhzY-sQY64SLFDgAqVsK-3oBxCLoqQ_8FEnXv0LQ1Em3dV9KKmoA-lmAiSWwlpUVDFXrOTGmFB3CBSnwAbRURHV4yoJtzxQmkhfw4CexwXUMfhlSaYNEQd1zYEJRPBE9OmMKiWSiHcfQzeB55rzuK2VPDhxmneTWPOYNN5yyjBQIN1FCAM-wAjlZwn0UdFryfEVOZdekBo8iIhbpWUY9oXu6xViL5EFxg\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/covidcertificate/test",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"covidcertificate",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

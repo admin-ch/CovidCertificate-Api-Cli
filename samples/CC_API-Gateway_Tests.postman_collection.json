@@ -1,0 +1,184 @@
+{
+  "_": {
+    "postman_id": "21b6192c-4d26-4550-85d0-32f346b49404"
+  },
+  "item": [
+    {
+      "id": "9fa46f26-40c5-4fbd-adff-b99014394a7f",
+      "name": "wsg",
+      "item": [
+        {
+          "id": "aa77cf97-0084-457c-99bd-c739d5db809a",
+          "name": "[WSG] Create VaccinationCovidCertificate",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "covidcertificate",
+                "vaccination"
+              ],
+              "host": [
+                "{{WSG}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Signature",
+                "value": "A76iVA++yMo6Qu/gcMNIhuQbGPD+rkzlRo7u2M1qSZ4ubkbhPp4WR0UfYKD7unzQj5xuym2wq0MHu/iM/wMnmGJrz/+yAYLsrnydnJflIt5ESnLLPMDaDQlmbuf7VkiyhBSuwojGGXnsx2JKlUbz1M/+SbdPf9GPCiQoRIg7K6TgebdpOzLTAczB7fsH2aA2ULVob3PhPXU1hAnglDBp8U4VDUpUEV0BfuaKLExJznn9KlFKojelRdcAMDJna3EqEsOdq68lVT7vKwTi2JGQOJ6jW3CMTLWmP99AO+st7x9cmZONvEJsdz7btP+mmCnz6zRKFQr0I+W0L4LbhejNsA=="
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"familyName\": \"Muster\",\n    \"givenName\": \"Hans\"\n  },\n  \"dateOfBirth\": \"1950-06-04\",\n  \"vaccinationInfo\": [\n    {\n      \"medicinalProductCode\": \"EU/1/20/1507\",\n      \"numberOfDoses\": 2,\n      \"totalNumberOfDoses\": 2,\n      \"vaccinationDate\": \"2021-05-17\",\n      \"countryOfVaccination\": \"CH\"\n    }\n  ],\n  \"language\": \"de\",\n  \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI2Yzk0MTYzMC03NGRlLTQ0ZWEtOGU0NS03YWMzMGUyODRlZmMiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1kLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTk1NjcxMiwibmJmIjoxNjIxOTU2NzEyLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlckV4dElkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsInR5cCI6ImF1dGhtYWNoaW5lK2p3dCIsImV4cCI6MTYyMTk5OTkxMn0.anpYUBZXwAJsjj0Q7PCT8-Kz3SDIYLMSlYWIGB_WKLMEzX4sbTW_cpRuE3aBKYNM5CoQKxbEYWyU8JTnhKZRiHxHmUYp6JuaihGND9Jr0CsKgPMTjmklXSMhsj54NWMFYxiPBb5U6L5e6BOMQ5Wm4UDsrvhJbvVDc5Ld9LsQiV_9iByLpUIFPFZuD3l0-l7prFYfSeNsVcR8_wSVSm8vJ3EES4u_CxQ6lF_V91kfhg8yxQuGsm6e79wB1siXsxnIUCoc78m1f7DcLKZaef9fz-xvONIqaO5X7BpPw5ySYLgxMC6fKZZa3FfO38hRMbsoeUuO7B1u26L7hLzE8K8hCQ\"\n}"
+            },
+            "auth": {
+              "type": "noauth",
+              "noauth": []
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "5887a987-cc0c-48be-9fa5-222c0cbf1b26",
+          "name": "[WSG] Create RecoveryCovidCertificate",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "covidcertificate",
+                "recovery"
+              ],
+              "host": [
+                "{{WSG}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Signature",
+                "value": "VW+PbLF4M297vbZv76fdKwSG1YGqT1RRKKPMtAH2TaMvS+GvbSiLH9JDJqRBzKpN5cSTwINkZIffZf3Cz0m4ILu0dwwBbIFRfjlZcqHf4hT1ksu7NISjy3fE9ZClcO6oFFdbNKa/BJ3dFp10n3v8M1JN/yUsIpGjBTe4ugFp5HPVhlM40ZVdkdMyJji4kHcLljyGP9eoFXwUTKklNuPLjGwauX9ih2PTiItWI0T2RoGsmIaSWsNwPXSSgJVsF7VNbbHDnLYezopKsRMW63RFKPSi3J1gVdaqhsT/Sg1brfmItm2zmYqktyfEAWGsmvY19nPboLKA2MC2en7KRe3c4A=="
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"familyName\": \"Muster\",\n    \"givenName\": \"Hans\"\n  },\n  \"dateOfBirth\": \"1950-06-04\",\n  \"recoveryInfo\": [\n    {\n      \"dateOfFirstPositiveTestResult\": \"2021-05-03\",\n      \"countryOfTest\": \"CH\"\n    }\n  ],\n  \"language\": \"de\",\n  \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI2Yzk0MTYzMC03NGRlLTQ0ZWEtOGU0NS03YWMzMGUyODRlZmMiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1kLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTk1NjcxMiwibmJmIjoxNjIxOTU2NzEyLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlckV4dElkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsInR5cCI6ImF1dGhtYWNoaW5lK2p3dCIsImV4cCI6MTYyMTk5OTkxMn0.anpYUBZXwAJsjj0Q7PCT8-Kz3SDIYLMSlYWIGB_WKLMEzX4sbTW_cpRuE3aBKYNM5CoQKxbEYWyU8JTnhKZRiHxHmUYp6JuaihGND9Jr0CsKgPMTjmklXSMhsj54NWMFYxiPBb5U6L5e6BOMQ5Wm4UDsrvhJbvVDc5Ld9LsQiV_9iByLpUIFPFZuD3l0-l7prFYfSeNsVcR8_wSVSm8vJ3EES4u_CxQ6lF_V91kfhg8yxQuGsm6e79wB1siXsxnIUCoc78m1f7DcLKZaef9fz-xvONIqaO5X7BpPw5ySYLgxMC6fKZZa3FfO38hRMbsoeUuO7B1u26L7hLzE8K8hCQ\"\n}"
+            },
+            "auth": {
+              "type": "noauth",
+              "noauth": []
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "7c95c784-e30c-4be5-a85b-cd77b3950f68",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "86286af8-fd36-47d3-9f3c-492aab078d00",
+          "name": "[WSG] Create TestCovidCertificate",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "covidcertificate",
+                "test"
+              ],
+              "host": [
+                "{{WSG}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Signature",
+                "value": "tLQxLq18HessxrS+Y4U1GsY1fkO/9OIVogp7eGBmx/FT8DMhJEe9v6lKfRN957qZ5w0QDDUkhS4lLLqgfEgVH1HTX55+Xo52+PHtXDMTBH3wVd2Kjuf4z83dlRs0pr/wX2y65eaigAJEJ5wpn0wjXMMfpqSGBF1DxrRp1j1GjJBhMDB/i8ibjBVknRKwHfumU/Vo8+4d3Ij/EbEwcVaaQMnBK2hrJuM5IG8j0kBIe9aBk48KnKRSI2ggfwRs+lEzMUC+i9WDGkQgI1f+SE7Bc+ap70UQoMgtlkWG7N6bnXYCO7+TrLWKd5UgqHZV7fu2+fLAoQC7CFyJX2eZSrd4Ng=="
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"familyName\": \"Muster\",\n    \"givenName\": \"Hans\"\n  },\n  \"dateOfBirth\": \"1950-06-04\",\n  \"testInfo\": [\n    {\n      \"typeCode\": \"LP217198-3\",\n      \"manufacturerCode\": \"1242\",\n      \"sampleDateTime\": \"2021-05-16T10:21:00.000Z\",\n      \"resultDateTime\": \"2021-05-17T10:36:00.000Z\",\n      \"testingCentreOrFacility\": \"Testcenter Bern Wankdorf\",\n      \"memberStateOfTest\": \"CH\"\n    }\n  ],\n  \"language\": \"de\",\n  \"otp\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI2Yzk0MTYzMC03NGRlLTQ0ZWEtOGU0NS03YWMzMGUyODRlZmMiLCJpc3MiOiJodHRwczovL2NvdmlkY2VydGlmaWNhdGUtbWFuYWdlbWVudC1kLmJhZy5hZG1pbi5jaCIsImlhdCI6MTYyMTk1NjcxMiwibmJmIjoxNjIxOTU2NzEyLCJzY29wZSI6ImNvdmlkY2VydGNyZWF0aW9uIiwidXNlckV4dElkIjoiMTIzNDU2IiwiaWRwc291cmNlIjoiRS1JRCBDSC1MT0dJTiIsInR5cCI6ImF1dGhtYWNoaW5lK2p3dCIsImV4cCI6MTYyMTk5OTkxMn0.anpYUBZXwAJsjj0Q7PCT8-Kz3SDIYLMSlYWIGB_WKLMEzX4sbTW_cpRuE3aBKYNM5CoQKxbEYWyU8JTnhKZRiHxHmUYp6JuaihGND9Jr0CsKgPMTjmklXSMhsj54NWMFYxiPBb5U6L5e6BOMQ5Wm4UDsrvhJbvVDc5Ld9LsQiV_9iByLpUIFPFZuD3l0-l7prFYfSeNsVcR8_wSVSm8vJ3EES4u_CxQ6lF_V91kfhg8yxQuGsm6e79wB1siXsxnIUCoc78m1f7DcLKZaef9fz-xvONIqaO5X7BpPw5ySYLgxMC6fKZZa3FfO38hRMbsoeUuO7B1u26L7hLzE8K8hCQ\"\n}"
+            },
+            "auth": {
+              "type": "noauth",
+              "noauth": []
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "3790a95a-6fa0-473d-9c14-327ef51d2817",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "bdeb29c4-b124-425d-bbe5-0c33800d5be0",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "d16ae31b-1b94-492c-bac8-0ccdb67b9efb",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [],
+  "info": {
+    "_postman_id": "21b6192c-4d26-4550-85d0-32f346b49404",
+    "name": "CC_API-Gateway_Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  }
+}
