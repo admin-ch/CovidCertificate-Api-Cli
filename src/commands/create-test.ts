@@ -8,32 +8,59 @@ import {CreateCertificateBaseCommand} from '../create-certificate-base-command'
 export default class CreateTest extends CreateCertificateBaseCommand {
   static description = 'create a test certificate'
 
+  static examples = [
+    `
+    export CC_CLI_OTP="a.b.c"
+    export CC_CLI_KEY_PASSPHRASE="secret"
+    export CC_CLI_BASE_URL="https://ws.covidcertificate-a.bag.admin.ch/"
+    export CC_CLI_CERTIFICATE_FILE="ZH-spital-A-t.bit.admin.ch.cer"
+    export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
+    export CC_CLI_OUT_DIR="out"
+    cc-cli create-test \\
+      --language="de" \\
+      --familyName="Federer" \\
+      --givenName="Roger" \\
+      --dateOfBirth="1981-08-08" \\
+      --typeCode="LP6464-4" \\
+      --sampleDateTime="2020-01-01T17:29:41.063Z" \\
+      --resultDateTime="2020-01-02T17:29:41.063Z" \\
+      --testingCentreOrFacility="Centre de test de Payerne" \\
+      --memberStateOfTest="CH"
+    `,
+  ]
+
   static flags = {
     ...baseFlags,
     ...personFlags,
     typeCode: flags.string(({
       description: 'type of test. This field is only mandatory when it is a PCR test.',
       required: false,
+      helpValue: 'LP217198-3',
     })),
     manufacturerCode: flags.string(({
       description: 'test manufacturer code. This should only be sent when it is not a PCR test',
       required: false,
+      helpValue: '1304',
     })),
     sampleDateTime: flags.string({
       description: 'date and time of the test sample collection. Format: ISO 8601 date incl. time.',
       required: true,
+      helpValue: '2021-05-22T11:12:85Z',
     }),
     resultDateTime: flags.string({
-      description: 'ate and time of the test result production (optional for rapid antigen test). Format: ISO 8601 date incl. time.',
+      description: 'date and time of the test result production (optional for rapid antigen test). Format: ISO 8601 date incl. time.',
       required: false,
+      helpValue: '2021-05-22T11:12:85Z',
     }),
     testingCentreOrFacility: flags.string(({
       description: 'name of centre or facility.',
       required: true,
+      helpValue: 'Test Center',
     })),
     memberStateOfTest: flags.string({
       description: 'the country in which the covid certificate owner has been tested. Format: string (2 chars according to ISO 3166 Country Codes).',
       required: true,
+      helpValue: 'CH',
     }),
   }
 

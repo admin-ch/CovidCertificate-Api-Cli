@@ -19,5 +19,5 @@ cc-cli create-vaccination \
     --medicinalProductCode="EU/1/20/1507" \
     --numberOfDoses="2" \
     --totalNumberOfDoses="2" \
-    --vaccinationDate="2020-01-01T17:29:41.063Z" \
+    --vaccinationDate="2020-01-01" \
     --countryOfVaccination="CH"

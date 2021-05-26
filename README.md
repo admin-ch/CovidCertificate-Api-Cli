@@ -58,39 +58,55 @@ USAGE
   $ cc-cli create-recovery
 
 OPTIONS
-  -d, --debug                                                    enable debug output.
-  --baseUrl=baseUrl                                              (required) the url of the REST API
-  --certificateFile=certificateFile                              (required) path to PEM encoded certificate
+  -d, --debug                                            enable debug output.
+  --baseUrl=https://ws.covidcertificate-a.bag.admin.ch/  (required) the url of the REST API
+  --certificateFile=~/a0000-cc-cli-TEST.cer              (required) path to PEM encoded certificate
 
-  --countryOfTest=countryOfTest                                  (required) the country in which the covid certificate
-                                                                 owner has been tested. Format: string (2 chars
-                                                                 according to ISO 3166 Country Codes).
+  --countryOfTest=CH                                     (required) the country in which the covid certificate owner has
+                                                         been tested. Format: string (2 chars according to ISO 3166
+                                                         Country Codes).
 
-  --dateOfBirth=dateOfBirth                                      (required) birthdate of the covid certificate owner.
-                                                                 Format: ISO 8601 date without time. Range: can be
-                                                                 between 1900-01-01 and 2099-12-31
+  --dateOfBirth=1981-08-08                               (required) birthdate of the covid certificate owner. Format:
+                                                         ISO 8601 date without time. Range: can be between 1900-01-01
+                                                         and 2099-12-31
 
-  --dateOfFirstPositiveTestResult=dateOfFirstPositiveTestResult  (required) date when the sample for the test was
-                                                                 collected. Format: ISO 8601 date without time. Range:
-                                                                 can be between 1900-01-01 and 2099-12-31
+  --dateOfFirstPositiveTestResult=2020-01-01             (required) date when the sample for the test was collected.
+                                                         Format: ISO 8601 date without time. Range: can be between
+                                                         1900-01-01 and 2099-12-31
 
-  --familyName=familyName                                        (required) family name of the covid certificate owner
+  --familyName=Federer                                   (required) family name of the covid certificate owner
 
-  --givenName=givenName                                          (required) given name of the covid certificate owner
+  --givenName=Roger                                      (required) given name of the covid certificate owner
 
-  --keyFile=keyFile                                              (required) path to PEM encoded private key
+  --keyFile=~/a0000-cc-cli-TEST.encrypted.key            (required) path to PEM encoded private key
 
-  --keyPassphrase=keyPassphrase                                  passphrase to decrypt the private key
+  --keyPassphrase=abcdefghijklmnopqrstuvwxyz             passphrase to decrypt the private key
 
-  --language=language                                            [default: de] Accepted languages are: de, it, fr, rm
+  --language=fr                                          [default: de] Accepted languages are: de, it, fr, rm
 
-  --local                                                        adds additional headers required to mock the WSG
+  --local                                                adds additional headers required to mock the WSG
 
-  --otp=otp                                                      (required) the otp secret
+  --otp=a.b.c                                            (required) the otp secret
 
-  --outDir=outDir                                                (required) [default:
-                                                                 /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T]
-                                                                 output directory
+  --outDir=out                                           (required) [default:
+                                                         /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T] output
+                                                         directory
+
+EXAMPLE
+
+       export CC_CLI_OTP="a.b.c"
+       export CC_CLI_KEY_PASSPHRASE="secret"
+       export CC_CLI_BASE_URL="https://ws.covidcertificate-a.bag.admin.ch/"
+       export CC_CLI_CERTIFICATE_FILE="ZH-spital-A-t.bit.admin.ch.cer"
+       export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
+       export CC_CLI_OUT_DIR="out"
+       cc-cli create-recovery \
+         --language="de" \
+         --familyName="Federer" \
+         --givenName="Roger" \
+         --dateOfBirth="1981-08-08" \
+         --dateOfFirstPositiveTestResult="2020-01-01" \
+         --countryOfTest="CH"
 ```
 
 _See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/create-recovery.ts)_
@@ -104,47 +120,68 @@ USAGE
   $ cc-cli create-test
 
 OPTIONS
-  -d, --debug                                        enable debug output.
-  --baseUrl=baseUrl                                  (required) the url of the REST API
-  --certificateFile=certificateFile                  (required) path to PEM encoded certificate
+  -d, --debug                                            enable debug output.
+  --baseUrl=https://ws.covidcertificate-a.bag.admin.ch/  (required) the url of the REST API
+  --certificateFile=~/a0000-cc-cli-TEST.cer              (required) path to PEM encoded certificate
 
-  --dateOfBirth=dateOfBirth                          (required) birthdate of the covid certificate owner. Format: ISO
-                                                     8601 date without time. Range: can be between 1900-01-01 and
-                                                     2099-12-31
+  --dateOfBirth=1981-08-08                               (required) birthdate of the covid certificate owner. Format:
+                                                         ISO 8601 date without time. Range: can be between 1900-01-01
+                                                         and 2099-12-31
 
-  --familyName=familyName                            (required) family name of the covid certificate owner
+  --familyName=Federer                                   (required) family name of the covid certificate owner
 
-  --givenName=givenName                              (required) given name of the covid certificate owner
+  --givenName=Roger                                      (required) given name of the covid certificate owner
 
-  --keyFile=keyFile                                  (required) path to PEM encoded private key
+  --keyFile=~/a0000-cc-cli-TEST.encrypted.key            (required) path to PEM encoded private key
 
-  --keyPassphrase=keyPassphrase                      passphrase to decrypt the private key
+  --keyPassphrase=abcdefghijklmnopqrstuvwxyz             passphrase to decrypt the private key
 
-  --language=language                                [default: de] Accepted languages are: de, it, fr, rm
+  --language=fr                                          [default: de] Accepted languages are: de, it, fr, rm
 
-  --local                                            adds additional headers required to mock the WSG
+  --local                                                adds additional headers required to mock the WSG
 
-  --manufacturerCode=manufacturerCode                test manufacturer code. This should only be sent when it is not a
-                                                     PCR test
+  --manufacturerCode=1304                                test manufacturer code. This should only be sent when it is not
+                                                         a PCR test
 
-  --memberStateOfTest=memberStateOfTest              (required) the country in which the covid certificate owner has
-                                                     been tested. Format: string (2 chars according to ISO 3166 Country
-                                                     Codes).
+  --memberStateOfTest=CH                                 (required) the country in which the covid certificate owner has
+                                                         been tested. Format: string (2 chars according to ISO 3166
+                                                         Country Codes).
 
-  --otp=otp                                          (required) the otp secret
+  --otp=a.b.c                                            (required) the otp secret
 
-  --outDir=outDir                                    (required) [default:
-                                                     /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T] output directory
+  --outDir=out                                           (required) [default:
+                                                         /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T] output
+                                                         directory
 
-  --resultDateTime=resultDateTime                    ate and time of the test result production (optional for rapid
-                                                     antigen test). Format: ISO 8601 date incl. time.
+  --resultDateTime=2021-05-22T11:12:85Z                  date and time of the test result production (optional for rapid
+                                                         antigen test). Format: ISO 8601 date incl. time.
 
-  --sampleDateTime=sampleDateTime                    (required) date and time of the test sample collection. Format: ISO
-                                                     8601 date incl. time.
+  --sampleDateTime=2021-05-22T11:12:85Z                  (required) date and time of the test sample collection. Format:
+                                                         ISO 8601 date incl. time.
 
-  --testingCentreOrFacility=testingCentreOrFacility  (required) name of centre or facility.
+  --testingCentreOrFacility=Test Center                  (required) name of centre or facility.
 
-  --typeCode=typeCode                                type of test. This field is only mandatory when it is a PCR test.
+  --typeCode=LP217198-3                                  type of test. This field is only mandatory when it is a PCR
+                                                         test.
+
+EXAMPLE
+
+       export CC_CLI_OTP="a.b.c"
+       export CC_CLI_KEY_PASSPHRASE="secret"
+       export CC_CLI_BASE_URL="https://ws.covidcertificate-a.bag.admin.ch/"
+       export CC_CLI_CERTIFICATE_FILE="ZH-spital-A-t.bit.admin.ch.cer"
+       export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
+       export CC_CLI_OUT_DIR="out"
+       cc-cli create-test \
+         --language="de" \
+         --familyName="Federer" \
+         --givenName="Roger" \
+         --dateOfBirth="1981-08-08" \
+         --typeCode="LP6464-4" \
+         --sampleDateTime="2020-01-01T17:29:41.063Z" \
+         --resultDateTime="2020-01-02T17:29:41.063Z" \
+         --testingCentreOrFacility="Centre de test de Payerne" \
+         --memberStateOfTest="CH"
 ```
 
 _See code: [src/commands/create-test.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/create-test.ts)_
@@ -158,41 +195,64 @@ USAGE
   $ cc-cli create-vaccination
 
 OPTIONS
-  -d, --debug                                  enable debug output.
-  --baseUrl=baseUrl                            (required) the url of the REST API
-  --certificateFile=certificateFile            (required) path to PEM encoded certificate
+  -d, --debug                                            enable debug output.
+  --baseUrl=https://ws.covidcertificate-a.bag.admin.ch/  (required) the url of the REST API
+  --certificateFile=~/a0000-cc-cli-TEST.cer              (required) path to PEM encoded certificate
 
-  --countryOfVaccination=countryOfVaccination  (required) the country in which the covid certificate owner has been
-                                               tested. Format: string (2 chars according to ISO 3166 Country Codes).
+  --countryOfVaccination=CH                              (required) the country in which the covid certificate owner has
+                                                         been vaccinated. Format: string (2 chars according to ISO 3166
+                                                         Country Codes).
 
-  --dateOfBirth=dateOfBirth                    (required) birthdate of the covid certificate owner. Format: ISO 8601
-                                               date without time. Range: can be between 1900-01-01 and 2099-12-31
+  --dateOfBirth=1981-08-08                               (required) birthdate of the covid certificate owner. Format:
+                                                         ISO 8601 date without time. Range: can be between 1900-01-01
+                                                         and 2099-12-31
 
-  --familyName=familyName                      (required) family name of the covid certificate owner
+  --familyName=Federer                                   (required) family name of the covid certificate owner
 
-  --givenName=givenName                        (required) given name of the covid certificate owner
+  --givenName=Roger                                      (required) given name of the covid certificate owner
 
-  --keyFile=keyFile                            (required) path to PEM encoded private key
+  --keyFile=~/a0000-cc-cli-TEST.encrypted.key            (required) path to PEM encoded private key
 
-  --keyPassphrase=keyPassphrase                passphrase to decrypt the private key
+  --keyPassphrase=abcdefghijklmnopqrstuvwxyz             passphrase to decrypt the private key
 
-  --language=language                          [default: de] Accepted languages are: de, it, fr, rm
+  --language=fr                                          [default: de] Accepted languages are: de, it, fr, rm
 
-  --local                                      adds additional headers required to mock the WSG
+  --local                                                adds additional headers required to mock the WSG
 
-  --medicinalProductCode=medicinalProductCode  (required) name of the medicinal product as registered in the country.
+  --medicinalProductCode=EU/1/20/1507                    (required) name of the medicinal product as registered in the
+                                                         country.
 
-  --numberOfDoses=numberOfDoses                (required) number in a series of doses
+  --numberOfDoses=2                                      (required) number in a series of doses
 
-  --otp=otp                                    (required) the otp secret
+  --otp=a.b.c                                            (required) the otp secret
 
-  --outDir=outDir                              (required) [default: /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T]
-                                               output directory
+  --outDir=out                                           (required) [default:
+                                                         /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T] output
+                                                         directory
 
-  --totalNumberOfDoses=totalNumberOfDoses      (required) number in a series of doses
+  --totalNumberOfDoses=2                                 (required) number in a series of doses
 
-  --vaccinationDate=vaccinationDate            (required) date when the sample for the test was collected. Format: ISO
-                                               8601 date without time. Range: can be between 1900-01-01 and 2099-12-31
+  --vaccinationDate=2020-01-01                           (required) date of vaccination. Format: ISO 8601 date without
+                                                         time. Range: can be between 1900-01-01 and 2099-12-31
+
+EXAMPLE
+
+       export CC_CLI_OTP="a.b.c"
+       export CC_CLI_KEY_PASSPHRASE="secret"
+       export CC_CLI_BASE_URL="https://ws.covidcertificate-a.bag.admin.ch/"
+       export CC_CLI_CERTIFICATE_FILE="ZH-spital-A-t.bit.admin.ch.cer"
+       export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
+       export CC_CLI_OUT_DIR="out"
+       cc-cli create-vaccination \
+         --language="de" \
+         --familyName="Federer" \
+         --givenName="Roger" \
+         --dateOfBirth="1981-08-08" \
+         --medicinalProductCode="EU/1/20/1507" \
+         --numberOfDoses="2" \
+         --totalNumberOfDoses="2" \
+         --vaccinationDate="2020-01-01" \
+         --countryOfVaccination="CH"
 ```
 
 _See code: [src/commands/create-vaccination.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/create-vaccination.ts)_
@@ -226,10 +286,10 @@ ARGUMENTS
   FILE  path to Postman collection
 
 OPTIONS
-  -h, --help                     show CLI help
-  --keyFile=keyFile              (required) path to PEM encoded private key
-  --keyPassphrase=keyPassphrase  passphrase to decrypt the private key
-  --otp=otp                      (required) the otp secret
+  -h, --help                                   show CLI help
+  --keyFile=~/a0000-cc-cli-TEST.encrypted.key  (required) path to PEM encoded private key
+  --keyPassphrase=abcdefghijklmnopqrstuvwxyz   passphrase to decrypt the private key
+  --otp=a.b.c                                  (required) the otp secret
 ```
 
 _See code: [src/commands/pm-update.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/pm-update.ts)_
@@ -246,9 +306,9 @@ ARGUMENTS
   FILE  input file, should be JSON
 
 OPTIONS
-  -h, --help                     show CLI help
-  --keyFile=keyFile              (required) path to PEM encoded private key
-  --keyPassphrase=keyPassphrase  passphrase to decrypt the private key
+  -h, --help                                   show CLI help
+  --keyFile=~/a0000-cc-cli-TEST.encrypted.key  (required) path to PEM encoded private key
+  --keyPassphrase=abcdefghijklmnopqrstuvwxyz   passphrase to decrypt the private key
 ```
 
 _See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/sign.ts)_

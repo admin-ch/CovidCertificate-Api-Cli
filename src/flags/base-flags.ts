@@ -5,17 +5,20 @@ export const certificateFile = flags.string({
   description: 'path to PEM encoded certificate',
   env: 'CC_CLI_CERTIFICATE_FILE',
   required: true,
+  helpValue: '~/a0000-cc-cli-TEST.cer',
 })
 
 export const keyFile = flags.string({
   description: 'path to PEM encoded private key',
   env: 'CC_CLI_KEY_FILE',
   required: true,
+  helpValue: '~/a0000-cc-cli-TEST.encrypted.key',
 })
 
 export const keyPassphrase = flags.string({
   description: 'passphrase to decrypt the private key',
   env: 'CC_CLI_KEY_PASSPHRASE',
+  helpValue: 'abcdefghijklmnopqrstuvwxyz',
   required: false,
 })
 
@@ -23,6 +26,7 @@ export const baseUrl = flags.string({
   description: 'the url of the REST API',
   env: 'CC_CLI_BASE_URL',
   required: true,
+  helpValue: 'https://ws.covidcertificate-a.bag.admin.ch/',
 })
 
 export const local = flags.boolean({
@@ -35,6 +39,7 @@ export const otp = flags.string({
   description: 'the otp secret',
   env: 'CC_CLI_OTP',
   required: true,
+  helpValue: 'a.b.c',
 })
 
 export const outDir = flags.string({
@@ -42,6 +47,7 @@ export const outDir = flags.string({
   env: 'CC_CLI_OUT_DIR',
   required: true,
   default: os.tmpdir(),
+  helpValue: 'out',
 })
 
 export const debug = flags.boolean({

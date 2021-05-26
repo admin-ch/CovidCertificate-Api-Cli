@@ -8,28 +8,54 @@ import {CreateCertificateBaseCommand} from '../create-certificate-base-command'
 export default class CreateVaccination extends CreateCertificateBaseCommand {
   static description = 'create a vaccination certificate'
 
+  static examples = [
+    `
+    export CC_CLI_OTP="a.b.c"
+    export CC_CLI_KEY_PASSPHRASE="secret"
+    export CC_CLI_BASE_URL="https://ws.covidcertificate-a.bag.admin.ch/"
+    export CC_CLI_CERTIFICATE_FILE="ZH-spital-A-t.bit.admin.ch.cer"
+    export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
+    export CC_CLI_OUT_DIR="out"
+    cc-cli create-vaccination \\
+      --language="de" \\
+      --familyName="Federer" \\
+      --givenName="Roger" \\
+      --dateOfBirth="1981-08-08" \\
+      --medicinalProductCode="EU/1/20/1507" \\
+      --numberOfDoses="2" \\
+      --totalNumberOfDoses="2" \\
+      --vaccinationDate="2020-01-01" \\
+      --countryOfVaccination="CH"
+    `,
+  ]
+
   static flags = {
     ...baseFlags,
     ...personFlags,
     medicinalProductCode: flags.string(({
       description: 'name of the medicinal product as registered in the country.',
       required: true,
+      helpValue: 'EU/1/20/1507',
     })),
     numberOfDoses: flags.integer(({
       description: 'number in a series of doses',
       required: true,
+      helpValue: '2',
     })),
     totalNumberOfDoses: flags.integer(({
       description: 'number in a series of doses',
       required: true,
+      helpValue: '2',
     })),
     vaccinationDate: flags.string({
-      description: 'date when the sample for the test was collected. Format: ISO 8601 date without time. Range: can be between 1900-01-01 and 2099-12-31',
+      description: 'date of vaccination. Format: ISO 8601 date without time. Range: can be between 1900-01-01 and 2099-12-31',
       required: true,
+      helpValue: '2020-01-01',
     }),
     countryOfVaccination: flags.string({
-      description: 'the country in which the covid certificate owner has been tested. Format: string (2 chars according to ISO 3166 Country Codes).',
+      description: 'the country in which the covid certificate owner has been vaccinated. Format: string (2 chars according to ISO 3166 Country Codes).',
       required: true,
+      helpValue: 'CH',
     }),
   }
 
