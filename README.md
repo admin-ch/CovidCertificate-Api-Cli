@@ -1,7 +1,4 @@
-swiss-admin-covid-certificate-api-cli
-=====================================
-
-
+# CLI to use the Swiss Covid Certificate API
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/swiss-admin-covid-certificate-api-cli.svg)](https://npmjs.org/package/swiss-admin-covid-certificate-api-cli)
