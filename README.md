@@ -6,6 +6,7 @@
 [![License](https://img.shields.io/npm/l/swiss-admin-covid-certificate-api-cli.svg)](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/master/package.json)
 
 <!-- toc -->
+* [CLI to use the Swiss Covid Certificate API](#cli-to-use-the-swiss-covid-certificate-api)
 * [About](#about)
 * [Usage](#usage)
 * [Commands](#commands)
@@ -28,7 +29,7 @@ $ npm install -g swiss-admin-covid-certificate-api-cli
 $ cc-cli COMMAND
 running command...
 $ cc-cli (-v|--version|version)
-swiss-admin-covid-certificate-api-cli/1.1.0 darwin-x64 node-v14.17.0
+swiss-admin-covid-certificate-api-cli/1.2.0 darwin-x64 node-v14.17.0
 $ cc-cli --help [COMMAND]
 USAGE
   $ cc-cli COMMAND
@@ -75,6 +76,8 @@ OPTIONS
 
   --keyFile=keyFile                                              (required) path to PEM encoded private key
 
+  --keyPassphrase=keyPassphrase                                  passphrase to decrypt the private key
+
   --language=language                                            [default: de] Accepted languages are: de, it, fr, rm
 
   --local                                                        adds additional headers required to mock the WSG
@@ -86,7 +89,7 @@ OPTIONS
                                                                  output directory
 ```
 
-_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.1.0/src/commands/create-recovery.ts)_
+_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/create-recovery.ts)_
 
 ## `cc-cli create-test`
 
@@ -110,6 +113,8 @@ OPTIONS
   --givenName=givenName                              (required) given name of the covid certificate owner
 
   --keyFile=keyFile                                  (required) path to PEM encoded private key
+
+  --keyPassphrase=keyPassphrase                      passphrase to decrypt the private key
 
   --language=language                                [default: de] Accepted languages are: de, it, fr, rm
 
@@ -138,7 +143,7 @@ OPTIONS
   --typeCode=typeCode                                type of test. This field is only mandatory when it is a PCR test.
 ```
 
-_See code: [src/commands/create-test.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.1.0/src/commands/create-test.ts)_
+_See code: [src/commands/create-test.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/create-test.ts)_
 
 ## `cc-cli create-vaccination`
 
@@ -165,6 +170,8 @@ OPTIONS
 
   --keyFile=keyFile                            (required) path to PEM encoded private key
 
+  --keyPassphrase=keyPassphrase                passphrase to decrypt the private key
+
   --language=language                          [default: de] Accepted languages are: de, it, fr, rm
 
   --local                                      adds additional headers required to mock the WSG
@@ -184,7 +191,7 @@ OPTIONS
                                                8601 date without time. Range: can be between 1900-01-01 and 2099-12-31
 ```
 
-_See code: [src/commands/create-vaccination.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.1.0/src/commands/create-vaccination.ts)_
+_See code: [src/commands/create-vaccination.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/create-vaccination.ts)_
 
 ## `cc-cli help [COMMAND]`
 
@@ -215,12 +222,13 @@ ARGUMENTS
   FILE  path to Postman collection
 
 OPTIONS
-  -h, --help         show CLI help
-  --keyFile=keyFile  (required) path to PEM encoded private key
-  --otp=otp          (required) the otp secret
+  -h, --help                     show CLI help
+  --keyFile=keyFile              (required) path to PEM encoded private key
+  --keyPassphrase=keyPassphrase  passphrase to decrypt the private key
+  --otp=otp                      (required) the otp secret
 ```
 
-_See code: [src/commands/pm-update.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.1.0/src/commands/pm-update.ts)_
+_See code: [src/commands/pm-update.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/pm-update.ts)_
 
 ## `cc-cli sign FILE`
 
@@ -234,11 +242,12 @@ ARGUMENTS
   FILE  input file, should be JSON
 
 OPTIONS
-  -h, --help         show CLI help
-  --keyFile=keyFile  (required) path to PEM encoded private key
+  -h, --help                     show CLI help
+  --keyFile=keyFile              (required) path to PEM encoded private key
+  --keyPassphrase=keyPassphrase  passphrase to decrypt the private key
 ```
 
-_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.1.0/src/commands/sign.ts)_
+_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/sign.ts)_
 <!-- commandsstop -->
 
 # Debugging
