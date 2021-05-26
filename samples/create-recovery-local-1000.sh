@@ -17,5 +17,5 @@ cc-cli create-recovery \
     --dateOfBirth="1981-08-08" \
     --dateOfFirstPositiveTestResult="2020-01-01" \
     --countryOfTest="CH" \
-    --testInstances=100
+    --testIterations=1000
 
