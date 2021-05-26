@@ -10,7 +10,6 @@
 * [About](#about)
 * [Usage](#usage)
 * [Commands](#commands)
-* [Debugging](#debugging)
 <!-- tocstop -->
 
 # About
@@ -34,7 +33,7 @@ $ npm install -g swiss-admin-covid-certificate-api-cli
 $ cc-cli COMMAND
 running command...
 $ cc-cli (-v|--version|version)
-swiss-admin-covid-certificate-api-cli/1.2.0 darwin-x64 node-v14.17.0
+swiss-admin-covid-certificate-api-cli/1.2.1 darwin-x64 node-v14.17.0
 $ cc-cli --help [COMMAND]
 USAGE
   $ cc-cli COMMAND
@@ -94,7 +93,7 @@ OPTIONS
                                                                  output directory
 ```
 
-_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/create-recovery.ts)_
+_See code: [src/commands/create-recovery.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/create-recovery.ts)_
 
 ## `cc-cli create-test`
 
@@ -148,7 +147,7 @@ OPTIONS
   --typeCode=typeCode                                type of test. This field is only mandatory when it is a PCR test.
 ```
 
-_See code: [src/commands/create-test.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/create-test.ts)_
+_See code: [src/commands/create-test.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/create-test.ts)_
 
 ## `cc-cli create-vaccination`
 
@@ -196,7 +195,7 @@ OPTIONS
                                                8601 date without time. Range: can be between 1900-01-01 and 2099-12-31
 ```
 
-_See code: [src/commands/create-vaccination.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/create-vaccination.ts)_
+_See code: [src/commands/create-vaccination.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/create-vaccination.ts)_
 
 ## `cc-cli help [COMMAND]`
 
@@ -233,7 +232,7 @@ OPTIONS
   --otp=otp                      (required) the otp secret
 ```
 
-_See code: [src/commands/pm-update.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/pm-update.ts)_
+_See code: [src/commands/pm-update.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/pm-update.ts)_
 
 ## `cc-cli sign FILE`
 
@@ -252,7 +251,5 @@ OPTIONS
   --keyPassphrase=keyPassphrase  passphrase to decrypt the private key
 ```
 
-_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/sign.ts)_
+_See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.1/src/commands/sign.ts)_
 <!-- commandsstop -->
-
-
