@@ -2,7 +2,7 @@
 const OpenAPI = require('openapi-typescript-codegen');
 (async () => {
   await OpenAPI.generate({
-    input: 'src/api/api-docs.yaml',
+    input: 'api-doc.json',
     output: 'src/api',
     httpClient: 'node',
     exportSchemas: false,

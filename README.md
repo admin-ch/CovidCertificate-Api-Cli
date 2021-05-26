@@ -16,6 +16,11 @@
 `cc-cli` interacts with the [Swiss Covid Certificate API](https://github.com/admin-ch/CovidCertificate-Apidoc#readme).
 It was created for testing and demo purposes only. 
 
+## OpenAPI Model Generation
+The model where created from the [API specification](https://github.com/admin-ch/CovidCertificate-Apidoc/blob/main/api-doc.json) using [openapi-typescript-codegen](https://www.npmjs.com/package/openapi-typescript-codegen).
+
+They can be regenerated with `npm run generate-api`. The implementation is in [generate-api.js](generate-api.js) and the API Spec located at [api-doc.json](api-doc.json).
+
 # Usage
 <!-- usage -->
 ```sh-session

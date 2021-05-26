@@ -70,7 +70,7 @@
     "test-watch": "mocha --watch --watch-files \"**/*.ts\" --forbid-only \"test/**/*.test.ts\"",
     "test-integration": "mocha --forbid-only \"test-integration/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md",
-    "generate": "node generate-api.js"
+    "generate-api": "node generate-api.js"
   },
   "types": "lib/index.d.ts"
 }
