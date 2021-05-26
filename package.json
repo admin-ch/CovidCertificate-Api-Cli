@@ -31,7 +31,6 @@
     "eslint-config-oclif-typescript": "^0.1.0",
     "globby": "^10.0.2",
     "mocha": "^5.2.0",
-    "newman": "^5.2.3",
     "nyc": "^14.1.1",
     "openapi-typescript-codegen": "^0.9.3",
     "sinon": "^10.0.0",
