@@ -1,8 +1,7 @@
 import {flags} from '@oclif/command'
-import createDebug from 'debug'
 import {baseFlags} from '../flags/base-flags'
 import {personFlags} from '../flags/person-flags'
-import {RecoveryCertificateCreateDto, TestCertificateCreateDto, VaccinationCertificateCreateDto} from '../api'
+import {VaccinationCertificateCreateDto} from '../api'
 import {CertificateCreationClient} from '../api/api'
 import {CreateCertificateBaseCommand} from '../create-certificate-base-command'
 
@@ -38,10 +37,7 @@ export default class CreateVaccination extends CreateCertificateBaseCommand {
 
   async run() {
     const {flags} = this.parse(CreateVaccination)
-
-    if (flags.debug) {
-      createDebug.enable('api')
-    }
+    this.configureDebug(flags)
 
     const createDto: VaccinationCertificateCreateDto = {
       otp: flags.otp,

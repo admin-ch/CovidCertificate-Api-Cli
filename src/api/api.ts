@@ -20,7 +20,7 @@ export interface Logger {
   log(message?: string, ...args: any[]): void;
 }
 
-const debug = createDebug('api')
+const debug = createDebug('cc-cli:api')
 
 export class CertificateCreationClient {
   constructor(private client: Got, private signer: CanonicalSha256WithRsaSigner) {}

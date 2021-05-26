@@ -3,6 +3,7 @@ import * as os from 'os'
 import * as path from 'path'
 import Command from '@oclif/command'
 import {CovidCertificateCreateResponseDto} from './api'
+import createDebug from 'debug'
 
 export abstract class CreateCertificateBaseCommand extends Command {
   protected async createCertificate(createFn: () => Promise<CovidCertificateCreateResponseDto>, outDir: string, iterations: number) {
@@ -28,5 +29,11 @@ export abstract class CreateCertificateBaseCommand extends Command {
     const data = Buffer.from(base64, 'base64')
     await fs.writeFile(file, data)
     this.log(`Output: ${file}`)
+  }
+
+  protected configureDebug(flags: { debug: boolean }) {
+    if (flags.debug) {
+      createDebug.enable('cc-cli:api')
+    }
   }
 }

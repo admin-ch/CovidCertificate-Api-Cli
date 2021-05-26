@@ -22,6 +22,11 @@ The model where created from the [API specification](https://github.com/admin-ch
 
 They can be regenerated with `npm run generate-api`. The implementation is in [generate-api.js](generate-api.js) and the API Spec located at [api-doc.json](api-doc.json).
 
+## Debugging
+cc-cli uses [`debug`](https://www.npmjs.com/package/debug).
+
+Enable API interaction tracing with `DEBUG=cc-cli:api` or use the `--debug` flag.
+
 # Usage
 <!-- usage -->
 ```sh-session
@@ -250,5 +255,4 @@ OPTIONS
 _See code: [src/commands/sign.ts](https://github.com/admin-ch/CovidCertificate-Api-Cli/blob/v1.2.0/src/commands/sign.ts)_
 <!-- commandsstop -->
 
-# Debugging
-cc-cli uses [`debug`](https://www.npmjs.com/package/debug).
+
