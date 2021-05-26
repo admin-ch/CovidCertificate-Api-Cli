@@ -14,6 +14,7 @@ describe('create-recovery', async () => {
       baseUrl: getEnvValueForFlag(baseFlags.baseUrl),
       certificateFile: getEnvValueForFlag(baseFlags.certificateFile),
       keyFile: getEnvValueForFlag(baseFlags.keyFile),
+      keyPassphrase: undefined,
       local: local,
     }
 

@@ -13,6 +13,12 @@ export const keyFile = flags.string({
   required: true,
 })
 
+export const keyPassphrase = flags.string({
+  description: 'passphrase to decrypt the private key',
+  env: 'CC_CLI_KEY_PASSPHRASE',
+  required: false,
+})
+
 export const baseUrl = flags.string({
   description: 'the url of the REST API',
   env: 'CC_CLI_BASE_URL',
@@ -55,6 +61,7 @@ export const baseFlags = {
   baseUrl: baseUrl,
   certificateFile: certificateFile,
   keyFile: keyFile,
+  keyPassphrase: keyPassphrase,
   otp: otp,
   outDir: outDir,
   local: local,

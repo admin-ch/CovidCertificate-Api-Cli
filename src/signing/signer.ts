@@ -22,13 +22,13 @@ export class CanonicalSha256WithRsaSigner {
     return canonicalPayload
   }
 
-  static fromKeyFile(keyFile: string): CanonicalSha256WithRsaSigner {
+  static fromKeyFile(keyFile: string, keyPassphrase: string | undefined): CanonicalSha256WithRsaSigner {
     const pemEncodedKey = fs.readFileSync(keyFile)
-    return this.fromPemEncodedKey(pemEncodedKey)
+    return this.fromPemEncodedKey(pemEncodedKey, keyPassphrase)
   }
 
-  static fromPemEncodedKey(pemEncodedKey: Buffer) {
-    const privateKeyObject = crypto.createPrivateKey(pemEncodedKey)
+  static fromPemEncodedKey(pemEncodedKey: Buffer, keyPassphrase: string | undefined) {
+    const privateKeyObject = crypto.createPrivateKey({key: pemEncodedKey, passphrase: keyPassphrase})
     return new CanonicalSha256WithRsaSigner(privateKeyObject)
   }
 }

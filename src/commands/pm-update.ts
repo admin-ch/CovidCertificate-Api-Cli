@@ -1,7 +1,7 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs-extra'
 import * as postman from 'postman-collection'
-import {keyFile, otp} from '../flags/base-flags'
+import {keyFile, keyPassphrase, otp} from '../flags/base-flags'
 import {CanonicalSha256WithRsaSigner} from '../signing/signer'
 
 export default class PmUpdate extends Command {
@@ -10,6 +10,7 @@ export default class PmUpdate extends Command {
   static flags = {
     help: flags.help({char: 'h'}),
     keyFile: keyFile,
+    keyPassphrase: keyPassphrase,
     otp: otp,
   }
 
@@ -23,7 +24,7 @@ export default class PmUpdate extends Command {
 
   async run() {
     const {args, flags} = this.parse(PmUpdate)
-    const signer = CanonicalSha256WithRsaSigner.fromKeyFile(flags.keyFile)
+    const signer = CanonicalSha256WithRsaSigner.fromKeyFile(flags.keyFile, flags.keyPassphrase)
 
     const otp = flags.otp
 

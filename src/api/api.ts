@@ -12,6 +12,7 @@ export interface ApiConfig {
   baseUrl: string;
   certificateFile: string;
   keyFile: string;
+  keyPassphrase: string | undefined;
   local?: boolean;
 }
 export interface Logger {
@@ -76,11 +77,12 @@ export class CertificateCreationClient {
   static fromConfig(config: ApiConfig): CertificateCreationClient {
     const pemEncodedKey = fs.readFileSync(config.keyFile)
     const pemEncodedCertificate = fs.readFileSync(config.certificateFile)
-    const signer = CanonicalSha256WithRsaSigner.fromPemEncodedKey(pemEncodedKey)
+    const signer = CanonicalSha256WithRsaSigner.fromPemEncodedKey(pemEncodedKey, config.keyPassphrase)
     const client = got.extend({
       prefixUrl: config.baseUrl,
       https: {
         key: pemEncodedKey,
+        passphrase: config.keyPassphrase,
         certificate: pemEncodedCertificate,
       },
       followRedirect: false,

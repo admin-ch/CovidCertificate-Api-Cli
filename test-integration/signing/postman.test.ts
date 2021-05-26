@@ -14,7 +14,7 @@ describe('signer', () => {
   context('official test certificate "ZH-spital-A-t.bit.admin.ch"', () => {
     const keyFile = getEnvValueForFlag(baseFlags.keyFile)
     expect(keyFile).to.include('ZH-spital-A-t.bit.admin.ch', 'must use that certificate to be able to validate')
-    const signer = CanonicalSha256WithRsaSigner.fromKeyFile(keyFile)
+    const signer = CanonicalSha256WithRsaSigner.fromKeyFile(keyFile, undefined)
 
     it('', () => {
       const json = fs.readFileSync(path.join(__dirname, 'ApiGateway.postman_collection.json'), 'utf8')
