@@ -18,13 +18,12 @@ export default class CreateTest extends CreateCertificateBaseCommand {
     export CC_CLI_OUT_DIR="out"
     cc-cli create-test \\
       --language="de" \\
-      --familyName="Federer" \\
-      --givenName="Roger" \\
-      --dateOfBirth="1981-08-08" \\
+      --familyName="Rochat" \\
+      --givenName="Céline" \\
+      --dateOfBirth="1964-03-14" \\
       --typeCode="LP6464-4" \\
       --sampleDateTime="2020-01-01T17:29:41.063Z" \\
-      --resultDateTime="2020-01-02T17:29:41.063Z" \\
-      --testingCentreOrFacility="Centre de test de Payerne" \\
+      --testingCentreOrFacility="Walk-in-Lyss AG" \\
       --memberStateOfTest="CH"
     `,
   ]
@@ -47,15 +46,10 @@ export default class CreateTest extends CreateCertificateBaseCommand {
       required: true,
       helpValue: '2021-05-22T11:12:85Z',
     }),
-    resultDateTime: flags.string({
-      description: 'date and time of the test result production (optional for rapid antigen test). Format: ISO 8601 date incl. time.',
-      required: false,
-      helpValue: '2021-05-22T11:12:85Z',
-    }),
     testingCentreOrFacility: flags.string(({
       description: 'name of centre or facility.',
       required: true,
-      helpValue: 'Test Center',
+      helpValue: 'Walk-in-Lyss AG',
     })),
     memberStateOfTest: flags.string({
       description: 'the country in which the covid certificate owner has been tested. Format: string (2 chars according to ISO 3166 Country Codes).',
@@ -83,7 +77,6 @@ export default class CreateTest extends CreateCertificateBaseCommand {
           typeCode: flags.typeCode,
           manufacturerCode: flags.manufacturerCode,
           sampleDateTime: flags.sampleDateTime,
-          resultDateTime: flags.resultDateTime,
           testingCentreOrFacility: flags.testingCentreOrFacility,
           memberStateOfTest: flags.memberStateOfTest,
         },
