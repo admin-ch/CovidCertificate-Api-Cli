@@ -13,11 +13,10 @@ export CC_CLI_OUT_DIR="out"
 
 cc-cli create-test \
     --language="de" \
-    --familyName="Federer" \
-    --givenName="Roger" \
-    --dateOfBirth="1981-08-08" \
+    --familyName="Rochat" \
+    --givenName="Céline" \
+    --dateOfBirth="1964-03-14" \
     --typeCode="LP6464-4" \
     --sampleDateTime="2020-01-01T17:29:41.063Z" \
-    --resultDateTime="2020-01-02T17:29:41.063Z" \
     --testingCentreOrFacility="Centre de test de Payerne" \
     --memberStateOfTest="CH"

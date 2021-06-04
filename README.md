@@ -66,17 +66,15 @@ OPTIONS
                                                          been tested. Format: string (2 chars according to ISO 3166
                                                          Country Codes).
 
-  --dateOfBirth=1981-08-08                               (required) birthdate of the covid certificate owner. Format:
-                                                         ISO 8601 date without time. Range: can be between 1900-01-01
-                                                         and 2099-12-31
+  --dateOfBirth=1964-03-14                               (required) birthdate of the covid certificate owner. Format:
+                                                         ISO 8601 date without time.
 
   --dateOfFirstPositiveTestResult=2020-01-01             (required) date when the sample for the test was collected.
-                                                         Format: ISO 8601 date without time. Range: can be between
-                                                         1900-01-01 and 2099-12-31
+                                                         Format: ISO 8601 date without time.
 
-  --familyName=Federer                                   (required) family name of the covid certificate owner
+  --familyName=Rochat                                    (required) family name of the covid certificate owner
 
-  --givenName=Roger                                      (required) given name of the covid certificate owner
+  --givenName=Céline                                     (required) given name of the covid certificate owner
 
   --keyFile=~/a0000-cc-cli-TEST.encrypted.key            (required) path to PEM encoded private key
 
@@ -101,10 +99,10 @@ EXAMPLE
        export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
        export CC_CLI_OUT_DIR="out"
        cc-cli create-recovery \
-         --language="de" \
-         --familyName="Federer" \
-         --givenName="Roger" \
-         --dateOfBirth="1981-08-08" \
+         --language="it" \
+         --familyName="Rossi" \
+         --givenName="Giulia" \
+         --dateOfBirth="1964-03-14" \
          --dateOfFirstPositiveTestResult="2020-01-01" \
          --countryOfTest="CH"
 ```
@@ -124,13 +122,12 @@ OPTIONS
   --baseUrl=https://ws.covidcertificate-a.bag.admin.ch/  (required) the url of the REST API
   --certificateFile=~/a0000-cc-cli-TEST.cer              (required) path to PEM encoded certificate
 
-  --dateOfBirth=1981-08-08                               (required) birthdate of the covid certificate owner. Format:
-                                                         ISO 8601 date without time. Range: can be between 1900-01-01
-                                                         and 2099-12-31
+  --dateOfBirth=1964-03-14                               (required) birthdate of the covid certificate owner. Format:
+                                                         ISO 8601 date without time.
 
-  --familyName=Federer                                   (required) family name of the covid certificate owner
+  --familyName=Rochat                                    (required) family name of the covid certificate owner
 
-  --givenName=Roger                                      (required) given name of the covid certificate owner
+  --givenName=Céline                                     (required) given name of the covid certificate owner
 
   --keyFile=~/a0000-cc-cli-TEST.encrypted.key            (required) path to PEM encoded private key
 
@@ -153,13 +150,10 @@ OPTIONS
                                                          /var/folders/hv/73dvbzz14ms96bgl5xlyxgww0000gn/T] output
                                                          directory
 
-  --resultDateTime=2021-05-22T11:12:85Z                  date and time of the test result production (optional for rapid
-                                                         antigen test). Format: ISO 8601 date incl. time.
-
   --sampleDateTime=2021-05-22T11:12:85Z                  (required) date and time of the test sample collection. Format:
                                                          ISO 8601 date incl. time.
 
-  --testingCentreOrFacility=Test Center                  (required) name of centre or facility.
+  --testingCentreOrFacility=Walk-in-Lyss AG              (required) name of centre or facility.
 
   --typeCode=LP217198-3                                  type of test. This field is only mandatory when it is a PCR
                                                          test.
@@ -174,13 +168,12 @@ EXAMPLE
        export CC_CLI_OUT_DIR="out"
        cc-cli create-test \
          --language="de" \
-         --familyName="Federer" \
-         --givenName="Roger" \
-         --dateOfBirth="1981-08-08" \
+         --familyName="Rochat" \
+         --givenName="Céline" \
+         --dateOfBirth="1964-03-14" \
          --typeCode="LP6464-4" \
          --sampleDateTime="2020-01-01T17:29:41.063Z" \
-         --resultDateTime="2020-01-02T17:29:41.063Z" \
-         --testingCentreOrFacility="Centre de test de Payerne" \
+         --testingCentreOrFacility="Walk-in-Lyss AG" \
          --memberStateOfTest="CH"
 ```
 
@@ -203,13 +196,12 @@ OPTIONS
                                                          been vaccinated. Format: string (2 chars according to ISO 3166
                                                          Country Codes).
 
-  --dateOfBirth=1981-08-08                               (required) birthdate of the covid certificate owner. Format:
-                                                         ISO 8601 date without time. Range: can be between 1900-01-01
-                                                         and 2099-12-31
+  --dateOfBirth=1964-03-14                               (required) birthdate of the covid certificate owner. Format:
+                                                         ISO 8601 date without time.
 
-  --familyName=Federer                                   (required) family name of the covid certificate owner
+  --familyName=Rochat                                    (required) family name of the covid certificate owner
 
-  --givenName=Roger                                      (required) given name of the covid certificate owner
+  --givenName=Céline                                     (required) given name of the covid certificate owner
 
   --keyFile=~/a0000-cc-cli-TEST.encrypted.key            (required) path to PEM encoded private key
 
@@ -244,10 +236,10 @@ EXAMPLE
        export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
        export CC_CLI_OUT_DIR="out"
        cc-cli create-vaccination \
-         --language="de" \
-         --familyName="Federer" \
-         --givenName="Roger" \
-         --dateOfBirth="1981-08-08" \
+         --language="fr" \
+         --familyName="Céline" \
+         --givenName="Rochat" \
+         --dateOfBirth="1964-03-14" \
          --medicinalProductCode="EU/1/20/1507" \
          --numberOfDoses="2" \
          --totalNumberOfDoses="2" \

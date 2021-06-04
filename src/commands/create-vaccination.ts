@@ -17,10 +17,10 @@ export default class CreateVaccination extends CreateCertificateBaseCommand {
     export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
     export CC_CLI_OUT_DIR="out"
     cc-cli create-vaccination \\
-      --language="de" \\
-      --familyName="Federer" \\
-      --givenName="Roger" \\
-      --dateOfBirth="1981-08-08" \\
+      --language="fr" \\
+      --familyName="Céline" \\
+      --givenName="Rochat" \\
+      --dateOfBirth="1964-03-14" \\
       --medicinalProductCode="EU/1/20/1507" \\
       --numberOfDoses="2" \\
       --totalNumberOfDoses="2" \\

@@ -11,9 +11,9 @@ set CC_CLI_OUT_DIR=out
 
 cc-cli create-vaccination ^
     --language="de" ^
-    --familyName="Federer" ^
-    --givenName="Roger" ^
-    --dateOfBirth="1981-08-08" ^
+    --familyName="Rochat" ^
+    --givenName="Céline" ^
+    --dateOfBirth="1964-03-14" ^
     --medicinalProductCode="EU/1/20/1507" ^
     --numberOfDoses="2" ^
     --totalNumberOfDoses="2" ^

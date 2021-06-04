@@ -17,10 +17,10 @@ export default class CreateRecovery extends CreateCertificateBaseCommand {
     export CC_CLI_KEY_FILE="ZH-spital-A-t.bit.admin.ch.encrypted.key"
     export CC_CLI_OUT_DIR="out"
     cc-cli create-recovery \\
-      --language="de" \\
-      --familyName="Federer" \\
-      --givenName="Roger" \\
-      --dateOfBirth="1981-08-08" \\
+      --language="it" \\
+      --familyName="Rossi" \\
+      --givenName="Giulia" \\
+      --dateOfBirth="1964-03-14" \\
       --dateOfFirstPositiveTestResult="2020-01-01" \\
       --countryOfTest="CH"
     `,
@@ -30,7 +30,7 @@ export default class CreateRecovery extends CreateCertificateBaseCommand {
     ...baseFlags,
     ...personFlags,
     dateOfFirstPositiveTestResult: flags.string({
-      description: 'date when the sample for the test was collected. Format: ISO 8601 date without time. Range: can be between 1900-01-01 and 2099-12-31',
+      description: 'date when the sample for the test was collected. Format: ISO 8601 date without time.',
       required: true,
       helpValue: '2020-01-01',
     }),

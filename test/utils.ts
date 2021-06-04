@@ -7,8 +7,8 @@ export function resourceFilePath(fileName: string): string {
 
 export const values = {
   OTP: 'otp_secret',
-  familyName: 'Federer',
-  givenName: 'Roger',
+  familyName: 'Rochat',
+  givenName: 'Céline',
   dateOfBirth: '1950-06-04',
   dateOfFirstPositiveTestResult: '2021-10-03',
   countryOfTest: 'countryOfTest',

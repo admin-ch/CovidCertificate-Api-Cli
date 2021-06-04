@@ -556,12 +556,12 @@
           "familyName": {
             "type": "string",
             "description": "family name of the covid certificate owner. Format: maxLength: 50 CHAR",
-            "example": "Federer"
+            "example": "Rochat"
           },
           "givenName": {
             "type": "string",
             "description": "first name of the covid certificate owner. Format: maxLength: 50 CHAR",
-            "example": "Roger"
+            "example": "Céline"
           }
         }
       },

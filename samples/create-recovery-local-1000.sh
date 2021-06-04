@@ -12,9 +12,9 @@ export CC_CLI_LOCAL=true
 
 cc-cli create-recovery \
     --language="de" \
-    --familyName="Federer" \
-    --givenName="Roger" \
-    --dateOfBirth="1981-08-08" \
+    --familyName="Rochat" \
+    --givenName="Céline" \
+    --dateOfBirth="1964-03-14" \
     --dateOfFirstPositiveTestResult="2020-01-01" \
     --countryOfTest="CH" \
     --testIterations=1000
