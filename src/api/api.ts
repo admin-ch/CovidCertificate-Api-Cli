@@ -66,9 +66,9 @@ export class CertificateCreationClient {
           logger.warn(restErrorText)
         }
       } else if (error instanceof got.TimeoutError) {
-
+        debug('Timeout')
       } else if (error instanceof got.RequestError) {
-
+        debug('RequestError')
       }
       throw error
     }

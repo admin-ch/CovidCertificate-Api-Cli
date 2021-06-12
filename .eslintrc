@@ -2,5 +2,11 @@
   "extends": [
     "oclif",
     "oclif-typescript"
-  ]
+  ],
+  "rules": {
+    "unicorn/no-abusive-eslint-disable": "off",
+    // note you must disable the base rule as it can report incorrect errors
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": ["error"]
+  }
 }

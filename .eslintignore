@@ -1,3 +1,4 @@
 /lib
-src/api/models
+/src/api/models
+/src/api/index.ts
 generate-api.js

@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+/* istanbul ignore file */
 export type { CovidCertificateCreateResponseDto } from './models/CovidCertificateCreateResponseDto';
 export type { CovidCertificatePersonNameDto } from './models/CovidCertificatePersonNameDto';
 export type { RecoveryCertificateCreateDto } from './models/RecoveryCertificateCreateDto';

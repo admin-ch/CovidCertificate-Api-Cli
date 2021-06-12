@@ -8,6 +8,8 @@ import createDebug from 'debug'
 export abstract class CreateCertificateBaseCommand extends Command {
   protected async createCertificate(createFn: () => Promise<CovidCertificateCreateResponseDto>, outDir: string, iterations: number) {
     await fs.ensureDir(outDir)
+    /* eslint-disable no-await-in-loop */
+    // we want to work serially for now
     for (let i = 0; i < iterations; i++) {
       const response = await createFn()
       this.log(`Certificate created. uvci: ${response.uvci ?? '<EMPTY>'}`)
@@ -21,6 +23,7 @@ export abstract class CreateCertificateBaseCommand extends Command {
       uvci = os.platform() === 'win32' ? uvci.replace(/:/g, '_') : uvci
       await this.saveFile(response.pdf, uvci, outDir, '.pdf')
       await this.saveFile(response.qrCode, uvci, outDir, '.png')
+      /* eslint-enable no-await-in-loop */
     }
   }
 
