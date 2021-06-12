@@ -6,8 +6,6 @@ import {CanonicalSha256WithRsaSigner} from '../../src/signing/signer'
 import * as fs from 'fs'
 import * as path from 'path'
 
-require('snackables').config({paths: '.env', debug: true})
-
 const SIGNATURE_HEADER = 'X-Signature'
 
 describe('signer', () => {

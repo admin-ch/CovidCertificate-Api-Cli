@@ -5,8 +5,6 @@ import {CanonicalSha256WithRsaSigner} from '../../src/signing/signer'
 import * as fs from 'fs'
 import * as path from 'path'
 
-require('snackables').config({paths: '.env', debug: true})
-
 describe('signer', () => {
   context('official test certificate "ZH-spital-A-t.bit.admin.ch"', () => {
     const keyFile = getEnvValueForFlag(baseFlags.keyFile)

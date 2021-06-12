@@ -4,8 +4,6 @@ import {ApiConfig, CertificateCreationClient, Logger} from '../../src/api/api'
 import {RecoveryCertificateCreateDto} from '../../src/api'
 import {getEnvValueForFlag} from '../config'
 
-require('snackables').config({paths: '.env', debug: true})
-
 describe('create-recovery', async () => {
   it('creates a certificate', async () => {
     // const local = Boolean(process.env[baseFlags.local.env])
