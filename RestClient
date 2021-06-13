@@ -1,0 +1,44 @@
+            RSA rsaPrivateKey = certificate.GetRSAPrivateKey();
+
+            var body = new
+            {
+                name = new
+                {
+                    familyName = "Rochat",
+                    givenName = "Céline"
+                },
+                dateOfBirth = "1964-03-14",
+                language = "fr",
+                otp = "OTP",
+                vaccinationInfo = new[] 
+                { 
+                    new 
+                    {
+                        medicinalProductCode = "EU/1/20/1528",
+                        numberOfDoses = "1",
+                        totalNumberOfDoses = "1",
+                        vaccinationDate = "2021-04-21",
+                        countryOfVaccination = "CH"
+                    }
+                }
+            };
+
+            var json = System.Text.Json.JsonSerializer.Serialize(body, new JsonSerializerOptions() { WriteIndented = true });
+
+            Regex normalizedJsonReplaceRegex = new Regex("[\\n\\r\\t ]", RegexOptions.Multiline);
+            string normalizedJson = normalizedJsonReplaceRegex.Replace(json, string.Empty);
+            byte[] signatureBytes = rsaPrivateKey.SignData(Encoding.UTF8.GetBytes(normalizedJson), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            string signatureString = Convert.ToBase64String(signatureBytes);
+
+            var client = new RestClient(RootURL);
+            client.Timeout = -1;
+            client.ClientCertificates = new X509CertificateCollection() { certificate };
+
+            var request = new RestRequest(URL, Method.POST);
+            request.AddHeader("X-Signature", signatureString);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json; Encoding.UTF8", json, ParameterType.RequestBody);
+
+            var response = client.Execute(request);
+            var createdResponse = System.Text.Json.JsonSerializer.Deserialize<CreatedCertificateDto>(response.Content);
+            File.WriteAllBytes(Path, Convert.FromBase64String(createdResponse.pdf));
