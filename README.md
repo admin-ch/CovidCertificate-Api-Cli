@@ -1,3 +1,6 @@
+# This project is retired
+This repository is no longer maintained. This is because our API is still testable using curl and postman. And furthermore the effort to perform the necessary updates and to test them exceeds the benefit.
+
 # CLI to use the Swiss Covid Certificate API
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
